@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcqyrahujiggr"]
+
+[ext_resource type="PackedScene" uid="uid://die2ra85pe0sv" path="res://Resources/ObjetoInteracao/objeto.tscn" id="1_5h72b"]
+[ext_resource type="Texture2D" uid="uid://cboq28n0bivr5" path="res://Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/spellbook_03c.png" id="2_084nx"]
+[ext_resource type="Script" path="res://objetos/livros/livro_shadow_ball.gd" id="2_al37t"]
+[ext_resource type="PackedScene" uid="uid://ckc1qewiukaai" path="res://projetil/bullet_shadowball.tscn" id="3_hihlc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o02wn"]
+size = Vector2(12, 15)
+
+[node name="LivroShadowBall" groups=["livro", "objeto"] instance=ExtResource("1_5h72b")]
+script = ExtResource("2_al37t")
+projetil = ExtResource("3_hihlc")
+is_arma = true
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_o02wn")
+
+[node name="Sprite2D" parent="." index="1"]
+texture_filter = 1
+texture = ExtResource("2_084nx")
+
+[node name="Label" parent="." index="2"]
+text = "Spell: Shadow ball"

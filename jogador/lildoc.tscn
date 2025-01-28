@@ -1,0 +1,121 @@
+[gd_scene load_steps=16 format=3 uid="uid://byiab0h6811tc"]
+
+[ext_resource type="PackedScene" uid="uid://crd5xklohw1gu" path="res://Resources/Corpo2D/Corpo2D.tscn" id="1_88qmb"]
+[ext_resource type="Texture2D" uid="uid://b2t6t3pd0c32u" path="res://Assets/doc_idle_anim_f0.png" id="2_5sc8m"]
+[ext_resource type="Script" path="res://jogador/lildoc.gd" id="2_pwowo"]
+[ext_resource type="Texture2D" uid="uid://clw2gjt2hxeyf" path="res://Assets/doc_idle_anim_f1.png" id="3_a35ry"]
+[ext_resource type="Texture2D" uid="uid://d2hyyq3xlie58" path="res://Assets/doc_idle_anim_f2.png" id="4_r7dd0"]
+[ext_resource type="Texture2D" uid="uid://c2schfu7qabjc" path="res://Assets/doc_idle_anim_f3.png" id="5_i36xc"]
+[ext_resource type="Texture2D" uid="uid://cwuwxf05803rv" path="res://Assets/doc_run_anim_f0.png" id="6_wajbp"]
+[ext_resource type="Texture2D" uid="uid://cqwvs4hogtoi1" path="res://Assets/doc_run_anim_f1.png" id="7_1qi6s"]
+[ext_resource type="Texture2D" uid="uid://dctvser67ydvd" path="res://Assets/doc_run_anim_f2.png" id="8_l0xlo"]
+[ext_resource type="Texture2D" uid="uid://8d43n3jmdo61" path="res://Assets/doc_run_anim_f3.png" id="9_1mdlu"]
+[ext_resource type="Script" path="res://jogador/idle.gd" id="11_vlhk5"]
+[ext_resource type="Script" path="res://jogador/walk.gd" id="12_327k7"]
+[ext_resource type="Script" path="res://jogador/ray_cast.gd" id="14_hpyd6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7s3t"]
+size = Vector2(14, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0i0h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5sc8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a35ry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r7dd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i36xc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wajbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1qi6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l0xlo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1mdlu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="lildoc" node_paths=PackedStringArray("ray_cast_direita", "ray_cast_esquerda", "mao") instance=ExtResource("1_88qmb")]
+texture_filter = 1
+motion_mode = 1
+platform_on_leave = 2
+platform_floor_layers = 0
+script = ExtResource("2_pwowo")
+ray_cast_direita = NodePath("RayCastDireita")
+ray_cast_esquerda = NodePath("RayCastEsquerda")
+mao = NodePath("Mao")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_x7s3t")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, -0.25)
+scale = Vector2(1, 1.02174)
+sprite_frames = SubResource("SpriteFrames_i0i0h")
+animation = &"idle"
+
+[node name="StateMachine" parent="." index="2" node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("idle")
+
+[node name="idle" parent="StateMachine" index="0" node_paths=PackedStringArray("walk")]
+script = ExtResource("11_vlhk5")
+walk = NodePath("../walk")
+animation_name = "idle"
+move_speed = 0.0
+
+[node name="walk" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("idle")]
+script = ExtResource("12_327k7")
+idle = NodePath("../idle")
+animation_name = "walk"
+move_speed = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Mao" type="Marker2D" parent="." index="4"]
+position = Vector2(15, 3)
+
+[node name="CooldownTiro" type="Timer" parent="." index="5"]
+unique_name_in_owner = true
+wait_time = 0.3
+
+[node name="RayCastDireita" type="RayCast2D" parent="." index="6" node_paths=PackedStringArray("mao_esquerda")]
+position = Vector2(0, 5)
+scale = Vector2(1, 3)
+enabled = false
+target_position = Vector2(20, 0)
+collide_with_areas = true
+script = ExtResource("14_hpyd6")
+mao_esquerda = NodePath("../Mao")
+
+[node name="RayCastEsquerda" type="RayCast2D" parent="." index="7" node_paths=PackedStringArray("mao_esquerda")]
+position = Vector2(0, 5)
+scale = Vector2(1, 3)
+enabled = false
+target_position = Vector2(-20, 0)
+collide_with_areas = true
+script = ExtResource("14_hpyd6")
+mao_esquerda = NodePath("../Mao")
+
+[connection signal="timeout" from="CooldownTiro" to="." method="_on_cooldown_tiro_timeout"]

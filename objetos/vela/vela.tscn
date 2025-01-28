@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://cospbec31r7nu"]
+
+[ext_resource type="Texture2D" uid="uid://b4rws304ox0h3" path="res://Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/candle_01b.png" id="1_ltwyg"]
+[ext_resource type="Script" path="res://objetos/vela/vela.gd" id="1_yng84"]
+[ext_resource type="Texture2D" uid="uid://b3tcw281qhqqs" path="res://Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/candle_01a.png" id="2_64trq"]
+[ext_resource type="Texture2D" uid="uid://rwgplguobbf5" path="res://textura_iluminacao.tres" id="4_p2goi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wd53"]
+size = Vector2(9, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3vls"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ltwyg")
+}],
+"loop": false,
+"name": &"acessa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_64trq")
+}],
+"loop": false,
+"name": &"apagada",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_olp44"]
+
+[node name="vela" type="Area2D" groups=["objeto"]]
+texture_filter = 1
+script = ExtResource("1_yng84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_6wd53")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e3vls")
+animation = &"acessa"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("4_p2goi")
+texture_scale = 2.0
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+offset_left = 1.0
+offset_top = -12.0
+offset_right = 36.0
+offset_bottom = 8.0
+text = "Candle"
+label_settings = SubResource("LabelSettings_olp44")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

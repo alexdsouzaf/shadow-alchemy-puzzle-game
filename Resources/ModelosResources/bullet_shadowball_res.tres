@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BulletResource" load_steps=2 format=3 uid="uid://5bi8sdiofa3f"]
+
+[ext_resource type="Script" path="res://projetil/bullet_resource.gd" id="1_imam2"]
+
+[resource]
+script = ExtResource("1_imam2")
+name = "Shadow Ball"
+speed = 10
+damage = 10

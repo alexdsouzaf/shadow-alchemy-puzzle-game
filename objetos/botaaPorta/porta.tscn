@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://pd03cxfube0o"]
+
+[ext_resource type="Script" path="res://objetos/botaaPorta/porta.gd" id="1_d3hm8"]
+[ext_resource type="Texture2D" uid="uid://d4pyusyperij" path="res://Assets/doors_leaf_open.png" id="1_toycv"]
+[ext_resource type="Texture2D" uid="uid://cek2wt37bvcro" path="res://Assets/doors_leaf_closed.png" id="2_gfc5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p3cn"]
+size = Vector2(32, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7h0i2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_toycv")
+}],
+"loop": false,
+"name": &"aberto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gfc5f")
+}],
+"loop": false,
+"name": &"fechado",
+"speed": 5.0
+}]
+
+[node name="porta" type="CharacterBody2D"]
+z_index = -1
+script = ExtResource("1_d3hm8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3p3cn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_7h0i2")
+animation = &"fechado"

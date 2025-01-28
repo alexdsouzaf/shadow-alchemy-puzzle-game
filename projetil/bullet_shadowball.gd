@@ -1,0 +1,2 @@
+extends BulletGenerica
+class_name BulletShadowBall

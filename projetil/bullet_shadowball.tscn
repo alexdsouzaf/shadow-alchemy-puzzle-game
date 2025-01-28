@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=3 uid="uid://ckc1qewiukaai"]
+
+[ext_resource type="PackedScene" uid="uid://dio0r7yk4afp4" path="res://projetil/bullet_generica.tscn" id="1_fuikb"]
+[ext_resource type="Script" path="res://projetil/bullet_shadowball.gd" id="2_0jcd8"]
+[ext_resource type="Texture2D" uid="uid://3f6j6ymfrvbn" path="res://Effect and Bullet 16x16/Purple Effect and Bullet 16x16.png" id="2_ba44n"]
+[ext_resource type="Resource" uid="uid://5bi8sdiofa3f" path="res://Resources/ModelosResources/bullet_shadowball_res.tres" id="3_18d5b"]
+[ext_resource type="Texture2D" uid="uid://rwgplguobbf5" path="res://textura_iluminacao.tres" id="5_n3y1n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ctoqe"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2xbd"]
+atlas = ExtResource("2_ba44n")
+region = Rect2(480, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3gyq"]
+atlas = ExtResource("2_ba44n")
+region = Rect2(496, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g50wn"]
+atlas = ExtResource("2_ba44n")
+region = Rect2(512, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6e6s"]
+atlas = ExtResource("2_ba44n")
+region = Rect2(528, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r20ty"]
+atlas = ExtResource("2_ba44n")
+region = Rect2(544, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6fa3"]
+atlas = ExtResource("2_ba44n")
+region = Rect2(560, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suw4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2xbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3gyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g50wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6e6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r20ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6fa3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="BulletGenerica" instance=ExtResource("1_fuikb")]
+script = ExtResource("2_0jcd8")
+atributos = ExtResource("3_18d5b")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_ctoqe")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_suw4r")
+frame_progress = 0.413171
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+color = Color(0.536298, 0.000217262, 0.540107, 1)
+texture = ExtResource("5_n3y1n")

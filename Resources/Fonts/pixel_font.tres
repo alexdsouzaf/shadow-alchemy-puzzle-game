@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cp8h8v402sr8n"]
+
+[ext_resource type="FontFile" uid="uid://h4a1urxmdy31" path="res://Resources/Fonts/m3x6.ttf" id="1_m860n"]
+
+[resource]
+base_font = ExtResource("1_m860n")
+opentype_features = {
+1667329140: 0
+}

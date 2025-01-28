@@ -1,0 +1,134 @@
+[gd_scene load_steps=21 format=3 uid="uid://byiab0h6811tc"]
+
+[ext_resource type="PackedScene" uid="uid://crd5xklohw1gu" path="res://Resources/Corpo2D/Corpo2D.tscn" id="1_88qmb"]
+[ext_resource type="Texture2D" uid="uid://b2t6t3pd0c32u" path="res://Assets/doc_idle_anim_f0.png" id="2_5sc8m"]
+[ext_resource type="Script" path="res://jogador/lildoc.gd" id="2_pwowo"]
+[ext_resource type="Texture2D" uid="uid://clw2gjt2hxeyf" path="res://Assets/doc_idle_anim_f1.png" id="3_a35ry"]
+[ext_resource type="Texture2D" uid="uid://d2hyyq3xlie58" path="res://Assets/doc_idle_anim_f2.png" id="4_r7dd0"]
+[ext_resource type="Texture2D" uid="uid://c2schfu7qabjc" path="res://Assets/doc_idle_anim_f3.png" id="5_i36xc"]
+[ext_resource type="Texture2D" uid="uid://cwuwxf05803rv" path="res://Assets/doc_run_anim_f0.png" id="6_wajbp"]
+[ext_resource type="Texture2D" uid="uid://cqwvs4hogtoi1" path="res://Assets/doc_run_anim_f1.png" id="7_1qi6s"]
+[ext_resource type="Texture2D" uid="uid://dctvser67ydvd" path="res://Assets/doc_run_anim_f2.png" id="8_l0xlo"]
+[ext_resource type="Texture2D" uid="uid://8d43n3jmdo61" path="res://Assets/doc_run_anim_f3.png" id="9_1mdlu"]
+[ext_resource type="Script" path="res://jogador/idle.gd" id="11_vlhk5"]
+[ext_resource type="Script" path="res://jogador/walk.gd" id="12_327k7"]
+[ext_resource type="Script" path="res://jogador/MaoDireita.gd" id="13_bi28k"]
+[ext_resource type="Script" path="res://jogador/MaoEsquerda.gd" id="13_modfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7s3t"]
+size = Vector2(14, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0i0h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5sc8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a35ry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r7dd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i36xc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wajbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1qi6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l0xlo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1mdlu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_dix1v"]
+offsets = PackedFloat32Array(0, 0.00869565, 1)
+colors = PackedColorArray(0.747826, 0.747826, 0.747826, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_od5ju"]
+gradient = SubResource("Gradient_dix1v")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.779141, 0.107362)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2er7a"]
+radius = 4.12311
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acse3"]
+radius = 4.0
+
+[node name="lildoc" instance=ExtResource("1_88qmb")]
+texture_filter = 1
+script = ExtResource("2_pwowo")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_x7s3t")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, -0.25)
+scale = Vector2(1, 1.02174)
+sprite_frames = SubResource("SpriteFrames_i0i0h")
+animation = &"idle"
+
+[node name="StateMachine" parent="." index="2" node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("idle")
+
+[node name="idle" parent="StateMachine" index="0" node_paths=PackedStringArray("walk")]
+script = ExtResource("11_vlhk5")
+walk = NodePath("../walk")
+animation_name = "idle"
+move_speed = 0.0
+
+[node name="walk" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("idle")]
+script = ExtResource("12_327k7")
+idle = NodePath("../idle")
+animation_name = "walk"
+move_speed = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4"]
+enabled = false
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_od5ju")
+texture_scale = 2.0
+
+[node name="MaoEsquerda" type="Marker2D" parent="." index="5"]
+position = Vector2(-14, 7)
+script = ExtResource("13_modfh")
+
+[node name="AreaMaoEsquerda" type="Area2D" parent="MaoEsquerda" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaoEsquerda/AreaMaoEsquerda" index="0"]
+shape = SubResource("CircleShape2D_2er7a")
+
+[node name="MaoDireita" type="Marker2D" parent="." index="6"]
+position = Vector2(13, 7)
+script = ExtResource("13_bi28k")
+
+[node name="AreaMaoDireita" type="Area2D" parent="MaoDireita" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaoDireita/AreaMaoDireita" index="0"]
+shape = SubResource("CircleShape2D_acse3")
+
+[connection signal="area_entered" from="MaoEsquerda/AreaMaoEsquerda" to="MaoEsquerda" method="_on_area_mao_esquerda_area_entered"]
+[connection signal="body_entered" from="MaoEsquerda/AreaMaoEsquerda" to="MaoEsquerda" method="_on_area_mao_esquerda_body_entered"]
+[connection signal="area_entered" from="MaoDireita/AreaMaoDireita" to="MaoDireita" method="_on_area_mao_direita_area_entered"]
+[connection signal="body_entered" from="MaoDireita/AreaMaoDireita" to="MaoDireita" method="_on_area_mao_direita_body_entered"]

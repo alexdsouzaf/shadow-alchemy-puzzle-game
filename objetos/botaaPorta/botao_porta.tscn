@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwxixtxl8d4gq"]
+
+[ext_resource type="Script" path="res://objetos/botaaPorta/botao_porta.gd" id="1_mnlw6"]
+[ext_resource type="Texture2D" uid="uid://cjgi202u78ln4" path="res://Assets/button_blue_down.png" id="1_o8q33"]
+[ext_resource type="Texture2D" uid="uid://g26w6q3udokn" path="res://Assets/button_blue_up.png" id="2_jy054"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_050xh"]
+size = Vector2(8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uh25n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o8q33")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jy054")
+}],
+"loop": false,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xheq5"]
+
+[node name="botao_porta" type="Area2D" node_paths=PackedStringArray("label", "animated_sprite")]
+script = ExtResource("1_mnlw6")
+label = NodePath("labelDica")
+animated_sprite = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_050xh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uh25n")
+animation = &"up"
+
+[node name="labelDica" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = -35.0
+offset_top = -36.0
+offset_right = 37.0
+offset_bottom = -7.0
+text = "Press the button
+ to open the door"
+label_settings = SubResource("LabelSettings_xheq5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

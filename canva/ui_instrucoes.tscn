@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://2lmhxxhwdhca"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mfdab"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_al6mc"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ws1vx"]
+font_size = 32
+
+[node name="ui_instrucoes" type="CanvasLayer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Move with WASD"
+label_settings = SubResource("LabelSettings_mfdab")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Pick up/drop item with E"
+label_settings = SubResource("LabelSettings_al6mc")
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Aim spell with mouse and fire with Right Click"
+label_settings = SubResource("LabelSettings_ws1vx")

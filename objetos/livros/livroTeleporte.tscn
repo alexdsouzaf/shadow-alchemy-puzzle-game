@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://drtdkdd2ej180"]
+
+[ext_resource type="PackedScene" uid="uid://die2ra85pe0sv" path="res://Resources/ObjetoInteracao/objeto.tscn" id="1_2pdjf"]
+[ext_resource type="Texture2D" uid="uid://px1v4rtd7ik8" path="res://Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/spellbook_01c.png" id="2_gd6n2"]
+[ext_resource type="Script" path="res://objetos/livros/livro_teleporte.gd" id="2_vtll3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm33s"]
+size = Vector2(12, 16)
+
+[node name="LivroTeleport" groups=["objeto"] instance=ExtResource("1_2pdjf")]
+script = ExtResource("2_vtll3")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_cm33s")
+
+[node name="Sprite2D" parent="." index="1"]
+texture_filter = 1
+texture = ExtResource("2_gd6n2")
+
+[node name="Label" parent="." index="2"]
+text = "Spell: Teleport"

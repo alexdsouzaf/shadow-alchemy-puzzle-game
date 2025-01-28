@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7rvwwv668uj3"]
+
+[ext_resource type="PackedScene" uid="uid://cwxixtxl8d4gq" path="res://objetos/botaaPorta/botao_porta.tscn" id="7_rc32u"]
+[ext_resource type="PackedScene" uid="uid://pd03cxfube0o" path="res://objetos/botaaPorta/porta.tscn" id="9_10bp7"]
+
+[sub_resource type="TileSet" id="TileSet_8qo7f"]
+resource_local_to_scene = true
+physics_layer_0/collision_layer = 6
+physics_layer_0/collision_mask = 6
+physics_layer_1/collision_layer = 6
+physics_layer_1/collision_mask = 6
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [5, Vector2i(0, 0)], [1, Vector2i(0, 0)], [5, Vector2i(1, 0)], [2, Vector2i(0, 0)], [5, Vector2i(2, 0)], [3, Vector2i(0, 0)], [5, Vector2i(3, 0)], [4, Vector2i(0, 0)], [5, Vector2i(4, 0)], [5, Vector2i(0, 0)], [7, Vector2i(0, 0)], [5, Vector2i(1, 0)], [7, Vector2i(1, 0)], [5, Vector2i(2, 0)], [7, Vector2i(2, 0)], [5, Vector2i(3, 0)], [7, Vector2i(3, 0)], [5, Vector2i(4, 0)], [7, Vector2i(4, 0)], [6, Vector2i(0, 0)], [7, Vector2i(5, 0)]]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30dho"]
+size = Vector2(648, 360)
+
+[node name="CenarioBase" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8qo7f")
+format = 2
+layer_0/name = "chao"
+layer_1/name = "parede"
+
+[node name="AreaTileMap" type="Area2D" parent="TileMap"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/AreaTileMap"]
+position = Vector2(314, 179)
+shape = SubResource("RectangleShape2D_30dho")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.0701524, 0.0701524, 0.0701524, 1)
+blend_mode = 2
+
+[node name="porta" parent="." instance=ExtResource("9_10bp7")]
+position = Vector2(325, 97)
+
+[node name="botao_porta" parent="." instance=ExtResource("7_rc32u")]
+position = Vector2(362, 103)

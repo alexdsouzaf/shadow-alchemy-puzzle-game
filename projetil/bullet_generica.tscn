@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dio0r7yk4afp4"]
+
+[ext_resource type="Script" path="res://projetil/bullet_generica.gd" id="1_m78k6"]
+
+[node name="BulletGenerica" type="Area2D"]
+script = ExtResource("1_m78k6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
