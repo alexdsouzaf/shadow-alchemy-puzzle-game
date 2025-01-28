@@ -7,3 +7,12 @@ func _ready():
 func _on_botao_porta_abrir_porta():
 	%CollisionShape2D.set_deferred("disabled",true)
 	%AnimatedSprite2D.play("aberto")
+
+#deve carregar a proxima cena
+func jogador_entrou():
+	get_tree().change_scene_to_file("res://Resources/level/level_01.tscn") #receber por parametro a proxima fase
+
+
+func _on_area_abertura_body_entered(body: Node2D) -> void:
+	if body is JogadorCorpo2D:
+		jogador_entrou()

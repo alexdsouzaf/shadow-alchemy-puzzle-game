@@ -24,15 +24,11 @@ tile_proxies/coords_level = [[0, Vector2i(0, 0)], [5, Vector2i(0, 0)], [1, Vecto
 
 [node name="CenarioBase" instance=ExtResource("1_p3xwl")]
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="0"]
-color = Color(0.0701524, 0.0701524, 0.0701524, 1)
-blend_mode = 2
+[node name="bulletManager" parent="." index="0" instance=ExtResource("2_12mqt")]
 
-[node name="bulletManager" parent="." index="1" instance=ExtResource("2_12mqt")]
+[node name="ui_instrucoes" parent="." index="1" instance=ExtResource("15_1w4q7")]
 
-[node name="ui_instrucoes" parent="." index="2" instance=ExtResource("15_1w4q7")]
-
-[node name="Layer0" parent="." index="3"]
+[node name="Layer0" parent="." index="2"]
 tile_set = SubResource("TileSet_lwumd")
 
 [node name="fundo" type="TileMapLayer" parent="Layer0" index="0"]
