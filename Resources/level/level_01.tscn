@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bp0yluifht21c"]
+[gd_scene load_steps=9 format=4 uid="uid://bp0yluifht21c"]
 
 [ext_resource type="PackedScene" uid="uid://di8kbule36bl6" path="res://Resources/TileMapBase/cenario_base.tscn" id="1_x4oei"]
 [ext_resource type="TileSet" uid="uid://co7ryy7lsysvc" path="res://tileset/tileset_dungeon.tres" id="2_a176a"]
 [ext_resource type="PackedScene" uid="uid://byiab0h6811tc" path="res://jogador/lildoc.tscn" id="3_4srqt"]
 [ext_resource type="PackedScene" uid="uid://pd03cxfube0o" path="res://objetos/botaaPorta/porta.tscn" id="4_yk6gd"]
 [ext_resource type="PackedScene" uid="uid://cwxixtxl8d4gq" path="res://objetos/botaaPorta/botao_porta.tscn" id="5_cojyi"]
+[ext_resource type="PackedScene" uid="uid://bylbda3nrsyuv" path="res://Resources/level/level_02.tscn" id="5_ekkmq"]
 [ext_resource type="PackedScene" uid="uid://cospbec31r7nu" path="res://objetos/vela/vela.tscn" id="6_wghh5"]
 
 [sub_resource type="TileSet" id="TileSet_nc7sw"]
@@ -34,6 +35,7 @@ position = Vector2(271, 326)
 
 [node name="porta" parent="Layer0/PoolObjetosNoChao" index="1" instance=ExtResource("4_yk6gd")]
 position = Vector2(318, -13)
+proxima_fase = ExtResource("5_ekkmq")
 
 [node name="botao_porta" parent="Layer0/PoolObjetosNoChao" index="2" instance=ExtResource("5_cojyi")]
 z_index = -1
