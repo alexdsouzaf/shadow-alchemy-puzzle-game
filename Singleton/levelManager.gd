@@ -1,20 +1,18 @@
 extends Node
 class_name LevelManager
 
-
-var pre_carregamento_jogador = preload("res://jogador/lildoc.tscn")
 var jogador_corpo2d : JogadorCorpo2D = null
 var pool_objeto_no_chao : Node
 var game_running : bool = false
 var spawn_point : Marker2D
-
-func _ready() -> void:
-	pass
-	#_criar_instancia_jogador()
-
-func criar_instancia_jogador():
-	jogador_corpo2d = pre_carregamento_jogador.instantiate()
-	add_child(jogador_corpo2d)
+var fase_atual : Node2D
+var main : Node2D
 
 func seta_posicao_spawn():
 	jogador_corpo2d.global_position = spawn_point.global_position
+
+
+func trocar_fase(proxima_fase:PackedScene):
+	var instancia = proxima_fase.instantiate()
+	main.remove_child(fase_atual)
+	main.add_child(instancia)

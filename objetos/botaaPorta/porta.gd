@@ -11,8 +11,10 @@ func _on_botao_porta_abrir_porta():
 	%AnimatedSprite2D.play("aberto")
 
 #deve carregar a proxima cena
+#funciona na primeira mas nas seguintes se perde o valor da packedscene
 func jogador_entrou():
-	get_tree().change_scene_to_packed(proxima_fase)
+	levelManager.trocar_fase(proxima_fase)
+	#get_tree().change_scene_to_packed(proxima_fase)
 
 
 func _on_area_abertura_body_entered(body: Node2D) -> void:
