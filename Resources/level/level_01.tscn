@@ -22,7 +22,6 @@ tile_set = ExtResource("2_a176a")
 
 [node name="Layer0_PoolObjetosNoChao#porta" parent="ConjuntoTilemap/PoolObjetosNoChao" index="0" instance=ExtResource("4_yk6gd")]
 position = Vector2(318, -13)
-proxima_fase = ExtResource("5_ekkmq")
 
 [node name="Layer0_PoolObjetosNoChao#botao_porta" parent="ConjuntoTilemap/PoolObjetosNoChao" index="1" instance=ExtResource("5_cojyi")]
 z_index = -1
