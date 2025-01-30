@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bylbda3nrsyuv"]
+[gd_scene load_steps=5 format=4 uid="uid://bylbda3nrsyuv"]
 
 [ext_resource type="PackedScene" uid="uid://di8kbule36bl6" path="res://Resources/TileMapBase/cenario_base.tscn" id="1_k5fix"]
 [ext_resource type="TileSet" uid="uid://co7ryy7lsysvc" path="res://tileset/tileset_dungeon.tres" id="2_l787h"]
 [ext_resource type="PackedScene" uid="uid://cwxixtxl8d4gq" path="res://objetos/botaaPorta/botao_porta.tscn" id="3_8fyr5"]
 [ext_resource type="PackedScene" uid="uid://pd03cxfube0o" path="res://objetos/botaaPorta/porta.tscn" id="4_271fp"]
-[ext_resource type="PackedScene" uid="uid://bp0yluifht21c" path="res://Resources/level/level_01.tscn" id="5_spjam"]
 
 [node name="Level02" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_k5fix")]
 spawn_point = NodePath("SpawnPoint")
