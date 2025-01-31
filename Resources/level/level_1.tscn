@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cospbec31r7nu" path="res://objetos/vela/vela.tscn" id="6_wghh5"]
 [ext_resource type="PackedScene" uid="uid://durmyhpesqr71" path="res://objetos/livros/LivroFireBall.tscn" id="7_ltkgp"]
 
-[node name="Level01" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_x4oei")]
+[node name="Level1" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_x4oei")]
 spawn_point = NodePath("SpawnPoint")
+numeracao_fase = 1
 
 [node name="Layer0#fundo" type="TileMapLayer" parent="ConjuntoTilemap" index="0"]
 z_index = -1

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var proxima_fase : PackedScene
+#@export var proxima_fase : PackedScene
 
 func _ready():
 	SignalManager.abrir_porta.connect(self._on_botao_porta_abrir_porta)
@@ -13,7 +13,8 @@ func _on_botao_porta_abrir_porta():
 #deve carregar a proxima cena
 #funciona na primeira mas nas seguintes se perde o valor da packedscene
 func jogador_entrou():
-	levelManager.trocar_fase(proxima_fase)
+	levelManager.trocar_fase_por_arquivo()
+	#levelManager.trocar_fase(proxima_fase)
 	#get_tree().change_scene_to_packed(proxima_fase)
 
 
