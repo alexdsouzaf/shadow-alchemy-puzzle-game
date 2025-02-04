@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://di8kbule36bl6"]
+[gd_scene load_steps=2 format=3 uid="uid://di8kbule36bl6"]
 
 [ext_resource type="Script" path="res://Resources/TileMapBase/cenario_base.gd" id="1_c8wln"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyslv"]
-size = Vector2(454, 359.5)
 
 [node name="CenarioBase" type="Node2D" node_paths=PackedStringArray("pool_objeto_no_chao")]
 script = ExtResource("1_c8wln")
@@ -14,9 +11,7 @@ use_parent_material = true
 
 [node name="AreaValida" type="Area2D" parent="ConjuntoTilemap"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ConjuntoTilemap/AreaValida"]
-position = Vector2(417.5, 175.25)
-shape = SubResource("RectangleShape2D_fyslv")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ConjuntoTilemap/AreaValida"]
 
 [node name="PoolObjetosNoChao" type="Node" parent="ConjuntoTilemap"]
 
