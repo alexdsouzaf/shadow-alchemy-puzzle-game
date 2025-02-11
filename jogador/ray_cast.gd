@@ -2,9 +2,21 @@ extends RayCast2D
 
 @export var mao_esquerda : Marker2D
 
+var objeto_na_visao : ObjetoItem = null
+
 func _physics_process(delta: float) -> void:
+	_destacar_objeto()
 	if Input.is_action_just_pressed("pegar") && enabled:
 		_interagir()
+
+
+func _destacar_objeto():
+	if is_colliding() && get_collider() is ObjetoItem:
+		objeto_na_visao = get_collider() as ObjetoItem
+		objeto_na_visao.ligar_shader()
+	elif objeto_na_visao != null:
+		objeto_na_visao.desligar_shader()
+		objeto_na_visao = null
 
 func _interagir():
 	if is_colliding() && get_collider() is ObjetoItem:
