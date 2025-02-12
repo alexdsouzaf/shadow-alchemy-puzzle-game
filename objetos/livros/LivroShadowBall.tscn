@@ -26,8 +26,9 @@ shader_parameter/diagonals = true
 shader_parameter/rounded = true
 shader_parameter/scrollingTexture = SubResource("GradientTexture2D_ksby4")
 
-[node name="LivroShadowBall" groups=["livro", "objeto"] instance=ExtResource("1_5h72b")]
+[node name="LivroShadowBall" node_paths=PackedStringArray("textura_sprite") groups=["livro", "objeto"] instance=ExtResource("1_5h72b")]
 script = ExtResource("2_al37t")
+textura_sprite = NodePath("Sprite2D")
 projetil = ExtResource("3_hihlc")
 is_arma = true
 

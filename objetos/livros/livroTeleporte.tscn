@@ -1,20 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://drtdkdd2ej180"]
+[gd_scene load_steps=9 format=3 uid="uid://drtdkdd2ej180"]
 
 [ext_resource type="PackedScene" uid="uid://die2ra85pe0sv" path="res://Resources/ObjetoInteracao/objeto.tscn" id="1_2pdjf"]
 [ext_resource type="Texture2D" uid="uid://px1v4rtd7ik8" path="res://Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/spellbook_01c.png" id="2_gd6n2"]
 [ext_resource type="Script" path="res://objetos/livros/livro_teleporte.gd" id="2_vtll3"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_f6ajr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm33s"]
 size = Vector2(12, 16)
 
-[node name="LivroTeleport" groups=["objeto"] instance=ExtResource("1_2pdjf")]
+[sub_resource type="Gradient" id="Gradient_a05bh"]
+offsets = PackedFloat32Array(0, 0.543103, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.491379, 0.491379, 0.491379, 1, 0.14902, 0.521569, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ke7ow"]
+gradient = SubResource("Gradient_a05bh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yadia"]
+shader = ExtResource("3_f6ajr")
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 1.25
+shader_parameter/thickness = 0.0
+shader_parameter/tolerance = 0.0
+shader_parameter/diagonals = true
+shader_parameter/rounded = true
+shader_parameter/scrollingTexture = SubResource("GradientTexture2D_ke7ow")
+
+[node name="LivroTeleport" node_paths=PackedStringArray("textura_sprite") groups=["objeto"] instance=ExtResource("1_2pdjf")]
 script = ExtResource("2_vtll3")
+textura_sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_cm33s")
 
 [node name="Sprite2D" parent="." index="1"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_yadia")
 texture = ExtResource("2_gd6n2")
 
 [node name="Label" parent="." index="2"]
