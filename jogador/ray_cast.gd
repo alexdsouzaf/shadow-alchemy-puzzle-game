@@ -9,8 +9,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pegar") && enabled:
 		_interagir()
 
-# TODO: revisar essa logica por que ta um pouco bugado
-# um dos lados para de monitorar o item no chao
 func _destacar_objeto():
 	if is_colliding() && get_collider() is ObjetoItem:
 		objeto_na_visao = get_collider() as ObjetoItem

@@ -54,14 +54,13 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="lildoc" node_paths=PackedStringArray("ray_cast_direita", "ray_cast_esquerda", "mao") instance=ExtResource("1_88qmb")]
+[node name="lildoc" node_paths=PackedStringArray("ray_cast_direita", "mao") instance=ExtResource("1_88qmb")]
 texture_filter = 1
 motion_mode = 1
 platform_on_leave = 2
 platform_floor_layers = 0
 script = ExtResource("2_pwowo")
 ray_cast_direita = NodePath("RayCastDireita")
-ray_cast_esquerda = NodePath("RayCastEsquerda")
 mao = NodePath("Mao")
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -103,17 +102,7 @@ wait_time = 0.3
 [node name="RayCastDireita" type="RayCast2D" parent="." index="6" node_paths=PackedStringArray("mao_esquerda")]
 position = Vector2(0, 5)
 scale = Vector2(1, 3)
-enabled = false
 target_position = Vector2(20, 0)
-collide_with_areas = true
-script = ExtResource("14_hpyd6")
-mao_esquerda = NodePath("../Mao")
-
-[node name="RayCastEsquerda" type="RayCast2D" parent="." index="7" node_paths=PackedStringArray("mao_esquerda")]
-position = Vector2(0, 5)
-scale = Vector2(1, 3)
-enabled = false
-target_position = Vector2(-20, 0)
 collide_with_areas = true
 script = ExtResource("14_hpyd6")
 mao_esquerda = NodePath("../Mao")

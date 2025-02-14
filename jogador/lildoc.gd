@@ -5,7 +5,6 @@ class_name JogadorCorpo2D
 @onready var state_machine = %StateMachine
 
 @export var ray_cast_direita : RayCast2D
-@export var ray_cast_esquerda : RayCast2D
 @export var mao : Marker2D
 
 @export var vivo : bool = true
@@ -38,13 +37,11 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
-
 func _habilitar_raycasts():
-	ray_cast_direita.enabled = !animated_sprite_2d.flip_h
-	ray_cast_esquerda.enabled = animated_sprite_2d.flip_h
+	ray_cast_direita.target_position = Vector2( -20.0 if animated_sprite_2d.flip_h else 20.0, 0.0 )
 
 func _offset_mao():
-	mao.position = Vector2(15,3) if ray_cast_direita.enabled else Vector2(-15,3)
+	mao.position = Vector2(15,3) if !animated_sprite_2d.flip_h else Vector2(-15,3)
 
 func _skill():
 	#deveria ser uma lista ou outra forma de controlar quando entrar aqui
