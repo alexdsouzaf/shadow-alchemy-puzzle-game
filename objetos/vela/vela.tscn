@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cospbec31r7nu"]
+[gd_scene load_steps=15 format=3 uid="uid://cospbec31r7nu"]
 
 [ext_resource type="Texture2D" uid="uid://b4rws304ox0h3" path="res://Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/candle_01b.png" id="1_ltwyg"]
 [ext_resource type="Script" path="res://objetos/vela/vela.gd" id="1_yng84"]
 [ext_resource type="Texture2D" uid="uid://b3tcw281qhqqs" path="res://Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/candle_01a.png" id="2_64trq"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_d46m8"]
 [ext_resource type="Texture2D" uid="uid://rwgplguobbf5" path="res://textura_iluminacao.tres" id="4_p2goi"]
+[ext_resource type="Script" path="res://objetos/vela/point_light_2d.gd" id="6_arxm5"]
 [ext_resource type="Texture2D" uid="uid://xija5odi6w17" path="res://textura_chama_4px.png" id="6_e1ua2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wd53"]
@@ -70,6 +71,11 @@ animation = &"acessa"
 [node name="PointLight2D" type="PointLight2D" parent="."]
 shadow_enabled = true
 texture = ExtResource("4_p2goi")
+script = ExtResource("6_arxm5")
+
+[node name="TimerEscala" type="Timer" parent="PointLight2D"]
+wait_time = 2.0
+autostart = true
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
@@ -98,3 +104,4 @@ color_ramp = SubResource("Gradient_b2q4w")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="PointLight2D/TimerEscala" to="PointLight2D" method="_on_timer_escala_timeout"]
