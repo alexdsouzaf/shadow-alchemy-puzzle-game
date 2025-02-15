@@ -1,7 +1,15 @@
 extends State
 
 @export var idle: State
+@export var particulas_andando : CPUParticles2D
 
+func enter():
+	particulas_andando.emitting = true
+	super()
+
+func exit():
+	particulas_andando.emitting = false
+	super()
 
 func process_input(event: InputEvent) -> State:
 	return null
@@ -21,6 +29,7 @@ func movimentacao_normal(delta) -> State:
 	
 	if movementX != 0:
 		parent.animated_sprite_2d.flip_h = movementX < 0
+		particulas_andando.gravity.x = 200 if movementX < 0 else -200
 	
 	parent.velocity.x = movementX
 	parent.velocity.y = movementY

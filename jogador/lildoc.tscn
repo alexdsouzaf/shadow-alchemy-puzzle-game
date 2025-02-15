@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://byiab0h6811tc"]
+[gd_scene load_steps=17 format=3 uid="uid://byiab0h6811tc"]
 
 [ext_resource type="PackedScene" uid="uid://crd5xklohw1gu" path="res://Resources/Corpo2D/Corpo2D.tscn" id="1_88qmb"]
 [ext_resource type="Texture2D" uid="uid://b2t6t3pd0c32u" path="res://Assets/doc_idle_anim_f0.png" id="2_5sc8m"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://jogador/idle.gd" id="11_vlhk5"]
 [ext_resource type="Script" path="res://jogador/walk.gd" id="12_327k7"]
 [ext_resource type="Script" path="res://jogador/ray_cast.gd" id="14_hpyd6"]
+[ext_resource type="Texture2D" uid="uid://xija5odi6w17" path="res://textura_chama_4px.png" id="14_r72bt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7s3t"]
 size = Vector2(14, 16)
@@ -82,9 +83,10 @@ walk = NodePath("../walk")
 animation_name = "idle"
 move_speed = 0.0
 
-[node name="walk" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("idle")]
+[node name="walk" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("idle", "particulas_andando")]
 script = ExtResource("12_327k7")
 idle = NodePath("../idle")
+particulas_andando = NodePath("../../ParticulasAndando")
 animation_name = "walk"
 move_speed = 100.0
 
@@ -106,5 +108,13 @@ target_position = Vector2(20, 0)
 collide_with_areas = true
 script = ExtResource("14_hpyd6")
 mao_esquerda = NodePath("../Mao")
+
+[node name="ParticulasAndando" type="CPUParticles2D" parent="." index="7"]
+position = Vector2(0, 11)
+emitting = false
+amount = 2
+lifetime = 0.3
+texture = ExtResource("14_r72bt")
+gravity = Vector2(200, 0)
 
 [connection signal="timeout" from="CooldownTiro" to="." method="_on_cooldown_tiro_timeout"]

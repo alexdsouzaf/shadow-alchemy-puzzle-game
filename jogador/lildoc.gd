@@ -44,7 +44,7 @@ func _offset_mao():
 	mao.position = Vector2(15,3) if !animated_sprite_2d.flip_h else Vector2(-15,3)
 
 func _skill():
-	#deveria ser uma lista ou outra forma de controlar quando entrar aqui
+	# TODO: deveria ser uma lista ou outra forma de controlar quando entrar aqui
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && objeto_atual != null && pode_atirar:
 		if objeto_atual.is_arma :
 			SignalManager.atirar.emit()
