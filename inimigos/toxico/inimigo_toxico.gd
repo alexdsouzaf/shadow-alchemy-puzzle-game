@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name InimigoToxico
 @onready var animated_sprite_2d = %AnimatedSprite2D
 @onready var state_machine = %StateMachine
 

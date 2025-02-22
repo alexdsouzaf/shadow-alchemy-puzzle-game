@@ -77,13 +77,11 @@ move_speed = 75.0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaObservacao" index="0"]
-visible = false
 shape = SubResource("CircleShape2D_wt4jg")
 
 [node name="AreaDano" type="Area2D" parent="." index="4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDano" index="0"]
-visible = false
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_1735d")
 

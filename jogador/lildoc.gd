@@ -6,6 +6,7 @@ class_name JogadorCorpo2D
 
 @export var ray_cast_direita : RayCast2D
 @export var mao : Marker2D
+@export var componente_vida : ComponenteVida
 
 @export var vivo : bool = true
 @export var objeto_atual : ObjetoItem

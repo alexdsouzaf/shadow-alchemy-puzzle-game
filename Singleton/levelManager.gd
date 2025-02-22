@@ -21,3 +21,12 @@ func trocar_fase_por_arquivo():
 	var instancia = resource_fase.instantiate()
 	main.remove_child(fase_atual)
 	main.add_child(instancia)
+
+func reinicia_fase():
+	var resource_fase = load("res://Resources/level/level_" + str(fase_atual.numeracao_fase) + ".tscn")
+	var instancia = resource_fase.instantiate()
+	main.remove_child(fase_atual)
+	main.add_child(instancia)
+	
+	#talvez precise recarregar alguns elementos que ficam de fora da fase tbm
+	#como a referencia do jogador

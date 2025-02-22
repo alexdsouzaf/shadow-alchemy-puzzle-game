@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://byiab0h6811tc"]
+[gd_scene load_steps=19 format=3 uid="uid://byiab0h6811tc"]
 
 [ext_resource type="PackedScene" uid="uid://crd5xklohw1gu" path="res://Resources/Corpo2D/Corpo2D.tscn" id="1_88qmb"]
 [ext_resource type="Texture2D" uid="uid://b2t6t3pd0c32u" path="res://Assets/doc_idle_anim_f0.png" id="2_5sc8m"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://jogador/walk.gd" id="12_327k7"]
 [ext_resource type="Script" path="res://jogador/ray_cast.gd" id="14_hpyd6"]
 [ext_resource type="Texture2D" uid="uid://xija5odi6w17" path="res://textura_chama_4px.png" id="14_r72bt"]
+[ext_resource type="Script" path="res://jogador/componente_vida.gd" id="15_uo56e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7s3t"]
 size = Vector2(14, 16)
@@ -55,7 +56,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="lildoc" node_paths=PackedStringArray("ray_cast_direita", "mao") instance=ExtResource("1_88qmb")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j33t5"]
+size = Vector2(14, 16)
+
+[node name="lildoc" node_paths=PackedStringArray("ray_cast_direita", "mao", "componente_vida") instance=ExtResource("1_88qmb")]
 texture_filter = 1
 motion_mode = 1
 platform_on_leave = 2
@@ -63,6 +67,7 @@ platform_floor_layers = 0
 script = ExtResource("2_pwowo")
 ray_cast_direita = NodePath("RayCastDireita")
 mao = NodePath("Mao")
+componente_vida = NodePath("ComponenteVida")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0, 3)
@@ -117,4 +122,15 @@ lifetime = 0.3
 texture = ExtResource("14_r72bt")
 gravity = Vector2(200, 0)
 
+[node name="ComponenteVida" type="Node2D" parent="." index="8"]
+script = ExtResource("15_uo56e")
+vida_maxima = 3
+
+[node name="HurtBox" type="Area2D" parent="." index="9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_j33t5")
+
 [connection signal="timeout" from="CooldownTiro" to="." method="_on_cooldown_tiro_timeout"]
+[connection signal="body_entered" from="HurtBox" to="ComponenteVida" method="_on_hurt_box_body_entered"]
