@@ -12,7 +12,7 @@ config_version=5
 
 config/name="ShadowAlchemyGamejamProt"
 run/main_scene="res://level/main.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -25,7 +25,6 @@ uIManager="*res://Singleton/uIManager.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

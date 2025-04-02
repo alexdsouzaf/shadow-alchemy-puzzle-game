@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cwxixtxl8d4gq"]
 
-[ext_resource type="Script" path="res://objetos/botaaPorta/botao_porta.gd" id="1_mnlw6"]
+[ext_resource type="Script" uid="uid://baihhm74pqo45" path="res://objetos/botaaPorta/botao_porta.gd" id="1_mnlw6"]
 [ext_resource type="Texture2D" uid="uid://cjgi202u78ln4" path="res://Assets/button_blue_down.png" id="1_o8q33"]
 [ext_resource type="Texture2D" uid="uid://g26w6q3udokn" path="res://Assets/button_blue_up.png" id="2_jy054"]
 

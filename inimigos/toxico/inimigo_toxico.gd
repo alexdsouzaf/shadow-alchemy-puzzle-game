@@ -19,3 +19,8 @@ func _process(delta: float) -> void:
 func _on_area_dano_area_entered(area):
 	if area is BulletGenerica:
 		queue_free()
+
+
+func _on_area_toxica_body_entered(body: Node2D) -> void:
+	# TODO emitir um signal?
+	pass # Replace with function body.

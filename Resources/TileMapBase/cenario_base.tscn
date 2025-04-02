@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://di8kbule36bl6"]
 
-[ext_resource type="Script" path="res://Resources/TileMapBase/cenario_base.gd" id="1_c8wln"]
+[ext_resource type="Script" uid="uid://d0dbg1aw7tuht" path="res://Resources/TileMapBase/cenario_base.gd" id="1_c8wln"]
 
 [node name="CenarioBase" type="Node2D" node_paths=PackedStringArray("pool_objeto_no_chao")]
 script = ExtResource("1_c8wln")

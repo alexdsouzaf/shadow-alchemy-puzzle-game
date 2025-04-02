@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://die2ra85pe0sv"]
 
-[ext_resource type="Script" path="res://Resources/ObjetoInteracao/objeto.gd" id="1_j4m2h"]
+[ext_resource type="Script" uid="uid://s5x8t77sbnpv" path="res://Resources/ObjetoInteracao/objeto.gd" id="1_j4m2h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1d62b"]
 

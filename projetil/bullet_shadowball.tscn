@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://ckc1qewiukaai"]
 
 [ext_resource type="PackedScene" uid="uid://dio0r7yk4afp4" path="res://projetil/bullet_generica.tscn" id="1_fuikb"]
-[ext_resource type="Script" path="res://projetil/bullet_shadowball.gd" id="2_0jcd8"]
+[ext_resource type="Script" uid="uid://dv2ugaherm4m1" path="res://projetil/bullet_shadowball.gd" id="2_0jcd8"]
 [ext_resource type="Texture2D" uid="uid://3f6j6ymfrvbn" path="res://Effect and Bullet 16x16/Purple Effect and Bullet 16x16.png" id="2_ba44n"]
 [ext_resource type="Resource" uid="uid://5bi8sdiofa3f" path="res://Resources/ModelosResources/bullet_shadowball_res.tres" id="3_18d5b"]
 [ext_resource type="Texture2D" uid="uid://rwgplguobbf5" path="res://textura_iluminacao.tres" id="5_n3y1n"]

@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://crd5xklohw1gu" path="res://Resources/Corpo2D/Corpo2D.tscn" id="1_305kj"]
 [ext_resource type="Texture2D" uid="uid://bcoe2w5fr72b1" path="res://Assets/swampy_anim_f0.png" id="2_0sb35"]
-[ext_resource type="Script" path="res://inimigos/toxico/inimigo_toxico.gd" id="2_hejvi"]
+[ext_resource type="Script" uid="uid://d0raaxvc6faqe" path="res://inimigos/toxico/inimigo_toxico.gd" id="2_hejvi"]
 [ext_resource type="Texture2D" uid="uid://bqweptjqgutpm" path="res://Assets/swampy_anim_f1.png" id="3_scfl4"]
 [ext_resource type="Texture2D" uid="uid://dmscrutcf7jug" path="res://Assets/swampy_anim_f2.png" id="4_yqlvk"]
 [ext_resource type="Texture2D" uid="uid://bjo10apocvjpy" path="res://Assets/swampy_anim_f3.png" id="5_a3o2m"]
-[ext_resource type="Script" path="res://inimigos/toxico/idle.gd" id="6_hxnfv"]
-[ext_resource type="Script" path="res://inimigos/toxico/walk.gd" id="7_cms3s"]
+[ext_resource type="Script" uid="uid://cfk51w6s0af40" path="res://inimigos/toxico/idle.gd" id="6_hxnfv"]
+[ext_resource type="Script" uid="uid://bw4kt7or5my4s" path="res://inimigos/toxico/walk.gd" id="7_cms3s"]
 [ext_resource type="Texture2D" uid="uid://xija5odi6w17" path="res://textura_chama_4px.png" id="9_ra7hr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6rtv"]
@@ -43,6 +43,8 @@ size = Vector2(11, 12)
 radius = 25.0799
 
 [node name="InimigoToxico" instance=ExtResource("1_305kj")]
+collision_layer = 2
+collision_mask = 2
 motion_mode = 1
 platform_on_leave = 2
 platform_floor_layers = 0
@@ -93,9 +95,9 @@ shape = SubResource("CircleShape2D_v8ln1")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="AreaToxica" index="1"]
 amount = 10
+texture = ExtResource("9_ra7hr")
 randomness = 1.0
 lifetime_randomness = 1.0
-texture = ExtResource("9_ra7hr")
 emission_shape = 1
 emission_sphere_radius = 28.0
 gravity = Vector2(0, -50)
@@ -104,3 +106,4 @@ color = Color(2.23808e-06, 0.490135, 0, 1)
 [connection signal="body_entered" from="AreaObservacao" to="StateMachine/idle" method="_on_area_observacao_body_entered"]
 [connection signal="body_exited" from="AreaObservacao" to="StateMachine/walk" method="_on_area_observacao_body_exited"]
 [connection signal="area_entered" from="AreaDano" to="." method="_on_area_dano_area_entered"]
+[connection signal="body_entered" from="AreaToxica" to="." method="_on_area_toxica_body_entered"]

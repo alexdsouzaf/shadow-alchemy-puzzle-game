@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://die2ra85pe0sv" path="res://Resources/ObjetoInteracao/objeto.tscn" id="1_5h72b"]
 [ext_resource type="Texture2D" uid="uid://cboq28n0bivr5" path="res://Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/spellbook_03c.png" id="2_084nx"]
-[ext_resource type="Script" path="res://objetos/livros/livro_shadow_ball.gd" id="2_al37t"]
+[ext_resource type="Script" uid="uid://dc3mgmjd12c0w" path="res://objetos/livros/livro_shadow_ball.gd" id="2_al37t"]
 [ext_resource type="PackedScene" uid="uid://ckc1qewiukaai" path="res://projetil/bullet_shadowball.tscn" id="3_hihlc"]
-[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="4_cue5a"]
+[ext_resource type="Shader" uid="uid://wja5ta7wwxqo" path="res://shaders/outline.gdshader" id="4_cue5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o02wn"]
 size = Vector2(12, 15)
@@ -17,6 +17,7 @@ gradient = SubResource("Gradient_20x56")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jw1fo"]
 shader = ExtResource("4_cue5a")
+shader_parameter/scrollingTexture = SubResource("GradientTexture2D_ksby4")
 shader_parameter/textureScale = Vector2(1, 1)
 shader_parameter/angle = 45.0
 shader_parameter/textureSpeed = 1.25
@@ -24,7 +25,6 @@ shader_parameter/thickness = 0.0
 shader_parameter/tolerance = 0.0
 shader_parameter/diagonals = true
 shader_parameter/rounded = true
-shader_parameter/scrollingTexture = SubResource("GradientTexture2D_ksby4")
 
 [node name="LivroShadowBall" node_paths=PackedStringArray("textura_sprite") groups=["livro", "objeto"] instance=ExtResource("1_5h72b")]
 script = ExtResource("2_al37t")

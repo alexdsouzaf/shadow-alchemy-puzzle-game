@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://cospbec31r7nu"]
 
 [ext_resource type="Texture2D" uid="uid://b4rws304ox0h3" path="res://Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/candle_01b.png" id="1_ltwyg"]
-[ext_resource type="Script" path="res://objetos/vela/vela.gd" id="1_yng84"]
+[ext_resource type="Script" uid="uid://c3sqckcxg8bdl" path="res://objetos/vela/vela.gd" id="1_yng84"]
 [ext_resource type="Texture2D" uid="uid://b3tcw281qhqqs" path="res://Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/candle_01a.png" id="2_64trq"]
-[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_d46m8"]
+[ext_resource type="Shader" uid="uid://wja5ta7wwxqo" path="res://shaders/outline.gdshader" id="2_d46m8"]
 [ext_resource type="Texture2D" uid="uid://rwgplguobbf5" path="res://textura_iluminacao.tres" id="4_p2goi"]
-[ext_resource type="Script" path="res://objetos/vela/point_light_2d.gd" id="6_arxm5"]
+[ext_resource type="Script" uid="uid://1vgxjyrch2vd" path="res://objetos/vela/point_light_2d.gd" id="6_arxm5"]
 [ext_resource type="Texture2D" uid="uid://xija5odi6w17" path="res://textura_chama_4px.png" id="6_e1ua2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wd53"]
@@ -18,6 +18,7 @@ gradient = SubResource("Gradient_yngyi")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1we4"]
 shader = ExtResource("2_d46m8")
+shader_parameter/scrollingTexture = SubResource("GradientTexture2D_x1sig")
 shader_parameter/textureScale = Vector2(1, 1)
 shader_parameter/angle = 45.0
 shader_parameter/textureSpeed = 1.25
@@ -25,7 +26,6 @@ shader_parameter/thickness = 0.0
 shader_parameter/tolerance = 0.0
 shader_parameter/diagonals = true
 shader_parameter/rounded = true
-shader_parameter/scrollingTexture = SubResource("GradientTexture2D_x1sig")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e3vls"]
 animations = [{

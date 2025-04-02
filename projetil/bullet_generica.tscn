@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dio0r7yk4afp4"]
 
-[ext_resource type="Script" path="res://projetil/bullet_generica.gd" id="1_m78k6"]
+[ext_resource type="Script" uid="uid://dsjjeyi03et5i" path="res://projetil/bullet_generica.gd" id="1_m78k6"]
 
 [node name="BulletGenerica" type="Area2D"]
 script = ExtResource("1_m78k6")

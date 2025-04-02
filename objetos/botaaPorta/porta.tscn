@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://pd03cxfube0o"]
 
-[ext_resource type="Script" path="res://objetos/botaaPorta/porta.gd" id="1_d3hm8"]
+[ext_resource type="Script" uid="uid://bslehnryk0gbu" path="res://objetos/botaaPorta/porta.gd" id="1_d3hm8"]
 [ext_resource type="Texture2D" uid="uid://d4pyusyperij" path="res://Assets/doors_leaf_open.png" id="1_toycv"]
 [ext_resource type="Texture2D" uid="uid://cek2wt37bvcro" path="res://Assets/doors_leaf_closed.png" id="2_gfc5f"]
 

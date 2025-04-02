@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BulletResource" load_steps=3 format=3 uid="uid://baquo7wls6k3q"]
 
-[ext_resource type="Script" path="res://projetil/bullet_resource.gd" id="1_uxwl1"]
+[ext_resource type="Script" uid="uid://bbf2qwlixkbpp" path="res://projetil/bullet_resource.gd" id="1_uxwl1"]
 [ext_resource type="AudioStream" uid="uid://cvq314n0ap01w" path="res://Audios/JDSherbert - Pixel Explosions SFX Pack - Explosion (Small - 2).ogg" id="2_asswx"]
 
 [resource]

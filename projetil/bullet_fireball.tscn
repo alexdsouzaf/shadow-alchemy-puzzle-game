@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bwjo8wlfrw2yy"]
 
 [ext_resource type="PackedScene" uid="uid://dio0r7yk4afp4" path="res://projetil/bullet_generica.tscn" id="1_rn0kc"]
-[ext_resource type="Script" path="res://projetil/bullet_fireball.gd" id="2_5m84t"]
+[ext_resource type="Script" uid="uid://bhs0jrvtnuwyc" path="res://projetil/bullet_fireball.gd" id="2_5m84t"]
 [ext_resource type="Resource" uid="uid://baquo7wls6k3q" path="res://Resources/ModelosResources/bullet_fireball_res.tres" id="3_14qie"]
 [ext_resource type="Texture2D" uid="uid://cnc4twpxy456m" path="res://Effect and Bullet 16x16/Fire Effect and Bullet 16x16.png" id="4_oliug"]
 [ext_resource type="Texture2D" uid="uid://rwgplguobbf5" path="res://textura_iluminacao.tres" id="5_bhbu3"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bo6trj4qaijuv"]
 
-[ext_resource type="Script" path="res://level/main.gd" id="1_dnvxj"]
+[ext_resource type="Script" uid="uid://bdouwrjys3yul" path="res://level/main.gd" id="1_dnvxj"]
 [ext_resource type="PackedScene" uid="uid://bp0yluifht21c" path="res://Resources/level/level_1.tscn" id="1_k41jo"]
 [ext_resource type="PackedScene" uid="uid://byiab0h6811tc" path="res://jogador/lildoc.tscn" id="2_8xkcb"]
 [ext_resource type="PackedScene" uid="uid://cgyh1hks0dim5" path="res://projetil/bullet_manager.tscn" id="4_jbk7d"]
 [ext_resource type="AudioStream" uid="uid://c1ve6pdyq5r02" path="res://Audios/HaroldParanormalInstigatorTheme.wav" id="5_75ygn"]
-[ext_resource type="Script" path="res://level/ui_in_game.gd" id="6_yv61p"]
+[ext_resource type="Script" uid="uid://dfl04am7tr2qc" path="res://level/ui_in_game.gd" id="6_yv61p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdy1l"]
 font_size = 32
