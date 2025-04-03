@@ -21,6 +21,8 @@ func _preenche_level_manager():
 	levelManager.spawn_point = spawn_point
 	levelManager.seta_posicao_spawn()
 	levelManager.fase_atual = self
+	levelManager.jogador_corpo2d.componente_vida.iniciar()
+	uIManager.atualizar_componente_vida()
 
 func _pegar_numeracao():
 	var regex = RegEx.new()

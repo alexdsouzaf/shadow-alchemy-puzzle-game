@@ -7,4 +7,5 @@ class_name UIManager
 var ui_in_game : UIinGame
 
 func atualizar_componente_vida():
-	ui_in_game.atualizar_pontos_vida()
+	if ui_in_game != null:
+		ui_in_game.atualizar_pontos_vida()
