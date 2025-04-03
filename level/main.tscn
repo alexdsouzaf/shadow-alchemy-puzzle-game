@@ -1,17 +1,33 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo6trj4qaijuv"]
+[gd_scene load_steps=13 format=3 uid="uid://bo6trj4qaijuv"]
 
 [ext_resource type="Script" uid="uid://bdouwrjys3yul" path="res://level/main.gd" id="1_dnvxj"]
 [ext_resource type="PackedScene" uid="uid://bp0yluifht21c" path="res://Resources/level/level_1.tscn" id="1_k41jo"]
+[ext_resource type="Shader" uid="uid://dfn0dkby62bhq" path="res://level/main.gdshader" id="1_klgnm"]
 [ext_resource type="PackedScene" uid="uid://byiab0h6811tc" path="res://jogador/lildoc.tscn" id="2_8xkcb"]
 [ext_resource type="PackedScene" uid="uid://cgyh1hks0dim5" path="res://projetil/bullet_manager.tscn" id="4_jbk7d"]
 [ext_resource type="AudioStream" uid="uid://c1ve6pdyq5r02" path="res://Audios/HaroldParanormalInstigatorTheme.wav" id="5_75ygn"]
 [ext_resource type="Script" uid="uid://dfl04am7tr2qc" path="res://level/ui_in_game.gd" id="6_yv61p"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vc00"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_qdy1l"]
 font_size = 32
 
-[node name="Main" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_klgnm"]
+shader = ExtResource("1_klgnm")
+shader_parameter/fade = 1.0
+shader_parameter/tiling = 10.0
+
+[sub_resource type="Gradient" id="Gradient_j70lj"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ry1g7"]
+gradient = SubResource("Gradient_j70lj")
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("textura_transicao")]
 script = ExtResource("1_dnvxj")
+textura_transicao = NodePath("UI_in_game/TextureTransition")
 
 [node name="Inventario" type="Node2D" parent="."]
 
@@ -23,6 +39,7 @@ script = ExtResource("1_dnvxj")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_7vc00")
 color = Color(0, 0, 0, 0.490196)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -38,3 +55,13 @@ offset_right = 40.0
 offset_bottom = 13.0
 text = "Pontos de vida: "
 label_settings = SubResource("LabelSettings_qdy1l")
+
+[node name="TextureTransition" type="TextureRect" parent="UI_in_game"]
+z_index = 1
+material = SubResource("ShaderMaterial_klgnm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ry1g7")

@@ -7,6 +7,7 @@ var game_running : bool = false
 var spawn_point : Marker2D
 var fase_atual : Node2D
 var main : Node2D
+var textura_transicao : TextureRect
 
 func _ready() -> void:
 	pass
@@ -23,10 +24,22 @@ func trocar_fase_por_arquivo():
 	main.add_child(instancia)
 
 func reinicia_fase():
+	var indice_shader = 1
+	#nao deu certo, parece que nao to alterando certo o shader
+	while indice_shader > 0:
+		#await get_tree().create_timer(1).timeout
+		print("escurecendo")
+		indice_shader -= 0.01
+		textura_transicao.material.set_shader_parameter("Fade",indice_shader)
+	
 	var resource_fase = load("res://Resources/level/level_" + str(fase_atual.numeracao_fase) + ".tscn")
 	var instancia = resource_fase.instantiate()
 	main.remove_child(fase_atual)
 	main.add_child(instancia)
 	
+	while indice_shader < 0:
+		indice_shader += 0.01
+		textura_transicao.material.set_shader_parameter("Fade",indice_shader)
+
 	#talvez precise recarregar alguns elementos que ficam de fora da fase tbm
 	#como a referencia do jogador
