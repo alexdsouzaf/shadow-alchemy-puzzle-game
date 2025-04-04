@@ -24,22 +24,21 @@ func trocar_fase_por_arquivo():
 	main.add_child(instancia)
 
 func reinicia_fase():
-	var indice_shader = 1
-	#nao deu certo, parece que nao to alterando certo o shader
-	while indice_shader > 0:
-		#await get_tree().create_timer(1).timeout
-		print("escurecendo")
-		indice_shader -= 0.01
-		textura_transicao.material.set_shader_parameter("Fade",indice_shader)
+	var indice_shader : float = 1.0
+	while indice_shader > 0.0:
+		await get_tree().create_timer(0.05).timeout
+		textura_transicao.material.set_shader_parameter("fade",indice_shader)
+		indice_shader -= 0.2
 	
 	var resource_fase = load("res://Resources/level/level_" + str(fase_atual.numeracao_fase) + ".tscn")
 	var instancia = resource_fase.instantiate()
 	main.remove_child(fase_atual)
 	main.add_child(instancia)
 	
-	while indice_shader < 0:
-		indice_shader += 0.01
-		textura_transicao.material.set_shader_parameter("Fade",indice_shader)
-
-	#talvez precise recarregar alguns elementos que ficam de fora da fase tbm
-	#como a referencia do jogador
+	await get_tree().create_timer(0.3).timeout
+	
+	indice_shader = 0.0
+	while indice_shader < 1.0:
+		await get_tree().create_timer(0.05).timeout
+		indice_shader += 0.2
+		textura_transicao.material.set_shader_parameter("fade",indice_shader)
