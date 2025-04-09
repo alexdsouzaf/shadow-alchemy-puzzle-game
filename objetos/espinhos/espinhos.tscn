@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://bh0y7cfs6mqcl"]
+
+[ext_resource type="PackedScene" uid="uid://crd5xklohw1gu" path="res://Resources/Corpo2D/Corpo2D.tscn" id="1_syrjb"]
+[ext_resource type="Texture2D" uid="uid://bnbymwm4igaql" path="res://Assets/floor_spikes_anim_f0.png" id="2_p7xxb"]
+[ext_resource type="Texture2D" uid="uid://qe7fup5g6m85" path="res://Assets/floor_spikes_anim_f1.png" id="3_k2y4p"]
+[ext_resource type="Texture2D" uid="uid://cydm0dq8qy3rg" path="res://Assets/floor_spikes_anim_f2.png" id="4_mvx7y"]
+[ext_resource type="Texture2D" uid="uid://hjgwaj5l4hcn" path="res://Assets/floor_spikes_anim_f3.png" id="5_okvix"]
+[ext_resource type="Script" uid="uid://djxp4eljr3e32" path="res://objetos/espinhos/idle.gd" id="6_p7xxb"]
+[ext_resource type="Script" uid="uid://wvobvujoelg" path="res://objetos/espinhos/recolhendo.gd" id="7_mvx7y"]
+[ext_resource type="Script" uid="uid://clrec5wkktfl8" path="res://objetos/espinhos/aparecendo.gd" id="8_okvix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syrjb"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oilrt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p7xxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k2y4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mvx7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_okvix")
+}],
+"loop": false,
+"name": &"aparecendo",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_okvix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mvx7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k2y4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7xxb")
+}],
+"loop": false,
+"name": &"recolhendo",
+"speed": 12.0
+}]
+
+[node name="Corpo2D" instance=ExtResource("1_syrjb")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_syrjb")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_oilrt")
+animation = &"recolhendo"
+frame = 3
+frame_progress = 1.0
+
+[node name="StateMachine" parent="." index="2" node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("idle")
+
+[node name="idle" parent="StateMachine" index="0"]
+script = ExtResource("6_p7xxb")
+
+[node name="recolhendo" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("7_mvx7y")
+animation_name = "recolhendo"
+
+[node name="aparecendo" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("8_okvix")
+animation_name = "aparecendo"
