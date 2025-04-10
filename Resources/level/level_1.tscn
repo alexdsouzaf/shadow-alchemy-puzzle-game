@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bp0yluifht21c"]
+[gd_scene load_steps=9 format=4 uid="uid://bp0yluifht21c"]
 
 [ext_resource type="PackedScene" uid="uid://di8kbule36bl6" path="res://Resources/TileMapBase/cenario_base.tscn" id="1_x4oei"]
 [ext_resource type="TileSet" uid="uid://co7ryy7lsysvc" path="res://tileset/tileset_dungeon.tres" id="2_a176a"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cospbec31r7nu" path="res://objetos/vela/vela.tscn" id="6_wghh5"]
 [ext_resource type="PackedScene" uid="uid://l8xywpsx13r" path="res://inimigos/toxico/inimigo_toxico.tscn" id="7_2w7ee"]
 [ext_resource type="PackedScene" uid="uid://durmyhpesqr71" path="res://objetos/livros/LivroFireBall.tscn" id="7_ltkgp"]
+[ext_resource type="PackedScene" uid="uid://5k1wa3yu2k7n" path="res://objetos/espinhos/espinhos_no_chao.tscn" id="8_dbtst"]
 
 [node name="Level1" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_x4oei")]
 spawn_point = NodePath("SpawnPoint")
@@ -40,6 +41,9 @@ position = Vector2(402, 298)
 
 [node name="InimigoToxico" parent="ConjuntoTilemap/PoolObjetosNoChao" index="4" instance=ExtResource("7_2w7ee")]
 position = Vector2(378, 223)
+
+[node name="espinhos_no_chao" parent="ConjuntoTilemap/PoolObjetosNoChao" index="5" instance=ExtResource("8_dbtst")]
+position = Vector2(344, 327)
 
 [node name="DirectionalLight2D" parent="." index="1"]
 visible = false
