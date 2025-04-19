@@ -9,6 +9,8 @@ class_name EspinhosNoChao
 @export var tempo_para_aparecer : int
 @export var tempo_para_recolher : int
 
+@export var dano_espinhos : int = 1
+
 var estado : espinhoEstadoEnum = espinhoEstadoEnum.oculto
 
 enum espinhoEstadoEnum {
@@ -39,11 +41,14 @@ func _on_timer_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	# TODO  checar se o corpo que colidu possui a funcao basica pra receber dano
-	pass # Replace with function body.
+	if body.has_method("tomar_dano"):
+		body.tomar_dano(1)
 
 
 func _on_timer_recolher_timeout() -> void:
 	if estado == espinhoEstadoEnum.visivel:
 		estado = espinhoEstadoEnum.oculto
 		animation.play("recolhendo")
+
+func get_dano():
+	return dano_espinhos

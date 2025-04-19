@@ -18,8 +18,9 @@ func tomar_dano(pPontosDano:int):
 		levelManager.reinicia_fase()
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
-	if body is InimigoToxico:
-		tomar_dano(1)
+	pass
+	#if body is InimigoToxico:
+		#tomar_dano(1)
 
 func iniciar():
 	vida_atual = vida_maxima
