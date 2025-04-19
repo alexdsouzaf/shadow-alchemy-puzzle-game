@@ -6,11 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy6rk"]
 size = Vector2(16, 16)
 
-[node name="espinhos_no_chao" type="Area2D" node_paths=PackedStringArray("colisionShape", "animation", "timer")]
+[node name="espinhos_no_chao" type="Area2D" node_paths=PackedStringArray("colisionShape", "animation", "timer_recolher", "timer_aparecer")]
 script = ExtResource("1_5pp36")
 colisionShape = NodePath("CollisionShape2D")
 animation = NodePath("AnimatedSprite2D")
-timer = NodePath("Timer")
+timer_recolher = NodePath("TimerRecolher")
+timer_aparecer = NodePath("TimerAparecer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jy6rk")
@@ -19,9 +20,13 @@ shape = SubResource("RectangleShape2D_jy6rk")
 sprite_frames = ExtResource("2_10qio")
 animation = &"aparecendo"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="TimerAparecer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerRecolher" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerAparecer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerRecolher" to="." method="_on_timer_recolher_timeout"]

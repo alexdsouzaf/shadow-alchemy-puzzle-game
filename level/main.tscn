@@ -38,6 +38,7 @@ textura_transicao = NodePath("UI_in_game/TextureTransition")
 [node name="bulletManager" parent="." instance=ExtResource("4_jbk7d")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_7vc00")
 color = Color(0, 0, 0, 0.490196)
 
