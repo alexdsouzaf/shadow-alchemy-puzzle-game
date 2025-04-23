@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 levelManager="*res://Singleton/levelManager.gd"
 SignalManager="*res://Singleton/signalManager.gd"
 uIManager="*res://Singleton/uIManager.gd"
+gameSave="*res://Singleton/gameSave.gd"
 
 [display]
 
