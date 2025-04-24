@@ -6,24 +6,31 @@ var pool_objeto_no_chao : Node
 var game_running : bool = false
 var spawn_point : Marker2D
 var fase_atual : Node2D
-var main : Node2D
+var main : Main
 var textura_transicao : TextureRect
 
 func _ready() -> void:
 	pass
 
-func seta_posicao_spawn():
+func seta_posicao_spawn() -> void:
 	jogador_corpo2d.global_position = spawn_point.global_position
 
 
-func trocar_fase_por_arquivo():
+func trocar_fase_por_arquivo() -> void:
 	var proxima = fase_atual.numeracao_fase + 1
-	var resource_fase = load("res://Resources/level/level_" + str(proxima) + ".tscn")
-	var instancia = resource_fase.instantiate()
-	main.remove_child(fase_atual)
-	main.add_child(instancia)
+	carregar_fase_numero(proxima)
 
-func reinicia_fase():
+func carregar_fase_numero(pNumeroFase:int) -> void:
+	var resource_fase = load("res://Resources/level/level_" + str(pNumeroFase) + ".tscn")
+	var instancia = resource_fase.instantiate()
+	
+	if main.mundo.get_child_count() > 0:
+		main.mundo.remove_child(fase_atual)
+	
+	main.mundo.add_child(instancia)
+
+
+func reinicia_fase() -> void:
 	var indice_shader : float = 1.0
 	while indice_shader > 0.0:
 		await get_tree().create_timer(0.05).timeout

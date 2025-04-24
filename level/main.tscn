@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bo6trj4qaijuv"]
+[gd_scene load_steps=12 format=3 uid="uid://bo6trj4qaijuv"]
 
 [ext_resource type="Script" uid="uid://bdouwrjys3yul" path="res://level/main.gd" id="1_dnvxj"]
-[ext_resource type="PackedScene" uid="uid://bp0yluifht21c" path="res://Resources/level/level_1.tscn" id="1_k41jo"]
 [ext_resource type="Shader" uid="uid://dfn0dkby62bhq" path="res://level/main.gdshader" id="1_klgnm"]
 [ext_resource type="PackedScene" uid="uid://byiab0h6811tc" path="res://jogador/lildoc.tscn" id="2_8xkcb"]
 [ext_resource type="PackedScene" uid="uid://cgyh1hks0dim5" path="res://projetil/bullet_manager.tscn" id="4_jbk7d"]
@@ -25,15 +24,16 @@ colors = PackedColorArray(0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ry1g7"]
 gradient = SubResource("Gradient_j70lj")
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("textura_transicao")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("textura_transicao", "mundo")]
 script = ExtResource("1_dnvxj")
 textura_transicao = NodePath("UI_in_game/TextureTransition")
+mundo = NodePath("Mundo")
 
 [node name="Inventario" type="Node2D" parent="."]
 
 [node name="lildoc" parent="Inventario" instance=ExtResource("2_8xkcb")]
 
-[node name="Level1" parent="." instance=ExtResource("1_k41jo")]
+[node name="Mundo" type="Node2D" parent="."]
 
 [node name="bulletManager" parent="." instance=ExtResource("4_jbk7d")]
 

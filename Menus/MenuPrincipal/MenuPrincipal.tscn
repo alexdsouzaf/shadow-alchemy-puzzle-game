@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://b35cpw2j1416e"]
+[gd_scene load_steps=2 format=3 uid="uid://b35cpw2j1416e"]
+
+[ext_resource type="Script" uid="uid://cgc3ad5yyx3qp" path="res://Menus/MenuPrincipal/menu_principal.gd" id="1_fpvmf"]
 
 [node name="MenuPrincipal" type="Node2D"]
+script = ExtResource("1_fpvmf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -27,3 +30,7 @@ text = "Settings"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonIniciar" to="." method="_on_button_iniciar_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonConfigs" to="." method="_on_button_configs_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonSair" to="." method="_on_button_sair_pressed"]
