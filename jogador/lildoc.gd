@@ -64,3 +64,9 @@ func _mouse_dentro_mapa():
 	mouse_na_area_aceitavel = true
 func _mouse_fora_mapa():
 	mouse_na_area_aceitavel = false
+
+func adicionar_item_diretamente_na_mao(pItem:ObjetoItem):
+	levelManager.jogador_corpo2d.objeto_atual = pItem
+	pItem.pegar_largar(levelManager.pool_objeto_no_chao, mao,false)
+	pItem.global_position = mao.global_position
+	ray_cast_direita.add_exception(pItem)

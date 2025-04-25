@@ -91,8 +91,8 @@ label_settings = SubResource("LabelSettings_olp44")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(-1, -4)
 amount = 16
-lifetime_randomness = 1.0
 texture = ExtResource("6_e1ua2")
+lifetime_randomness = 1.0
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector2(0, -1)

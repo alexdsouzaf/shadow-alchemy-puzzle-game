@@ -22,3 +22,6 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 
 func iniciar():
 	vida_atual = vida_maxima
+
+func setar_vida_diretamente(pValorDireto:int):
+	vida_atual = pValorDireto

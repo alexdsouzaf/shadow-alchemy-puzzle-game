@@ -49,3 +49,36 @@ func reinicia_fase() -> void:
 		await get_tree().create_timer(0.05).timeout
 		indice_shader += 0.2
 		textura_transicao.material.set_shader_parameter("fade",indice_shader)
+
+#region [chamadas para salvar e carregar o jogo]
+func salvar_personagem():
+	var modelo = SavePersonagemModel.new()
+	modelo.vida = levelManager.jogador_corpo2d.componente_vida.vida_atual
+	if levelManager.jogador_corpo2d.objeto_atual != null:
+		var script = levelManager.jogador_corpo2d.objeto_atual.get_script()
+		var nome_classe = script.get_global_name()
+		modelo.type_objeto = nome_classe
+	gameSave.write_save_personagem(modelo)
+
+func salvar_entrada():
+	var saveModel = SaveSalaModel.new()
+	saveModel.numero_sala = fase_atual
+	gameSave.write_save_salas(saveModel)
+
+
+func carregar_ultima_sala():
+	var ultima_sala = GameSave.load_save_salas()
+	if ultima_sala != null && ultima_sala.numero_sala > 0:
+		levelManager.carregar_fase_numero(ultima_sala.numero_sala)
+	else:
+		levelManager.carregar_fase_numero(1)
+		
+
+func carregar_personagem():
+	var personagem = GameSave.load_save_personagem()
+	if personagem != null:
+		levelManager.jogador_corpo2d.componente_vida.setar_vida_diretamente(personagem.vida)
+		if personagem.type_objeto != null && personagem.type_objeto != "":
+			var objetoSalvo = ClassDB.instantiate(personagem.type_objeto)
+			levelManager.jogador_corpo2d.adicionar_item_diretamente_na_mao(objetoSalvo)
+#endregion

@@ -8,7 +8,6 @@ var numeracao_fase : int
 func _ready() -> void:
 	_pegar_numeracao()
 	_preenche_level_manager()
-	_salvar_entrada()
 
 func _on_area_valida_mouse_entered() -> void:
 	SignalManager.entrou_area_valida.emit()
@@ -30,8 +29,3 @@ func _pegar_numeracao():
 	regex.compile("\\d+")
 	var numero = regex.search(name)
 	numeracao_fase = int(numero.get_string())
-
-func _salvar_entrada():
-	var saveModel = SaveSalaModel.new()
-	saveModel.numero_sala = numeracao_fase
-	gameSave.write_save_salas(saveModel)
