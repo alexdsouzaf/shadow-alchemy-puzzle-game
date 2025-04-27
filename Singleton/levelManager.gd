@@ -17,7 +17,9 @@ func seta_posicao_spawn() -> void:
 
 
 func trocar_fase_por_arquivo() -> void:
+	salvar_personagem()
 	var proxima = fase_atual.numeracao_fase + 1
+	salvar_entrada(proxima)
 	carregar_fase_numero(proxima)
 
 func carregar_fase_numero(pNumeroFase:int) -> void:
@@ -55,14 +57,12 @@ func salvar_personagem():
 	var modelo = SavePersonagemModel.new()
 	modelo.vida = levelManager.jogador_corpo2d.componente_vida.vida_atual
 	if levelManager.jogador_corpo2d.objeto_atual != null:
-		var script = levelManager.jogador_corpo2d.objeto_atual.get_script()
-		var nome_classe = script.get_global_name()
-		modelo.type_objeto = nome_classe
+		modelo.type_objeto = levelManager.jogador_corpo2d.objeto_atual.scene_file_path
 	gameSave.write_save_personagem(modelo)
 
-func salvar_entrada():
+func salvar_entrada(pSalaNumero:int):
 	var saveModel = SaveSalaModel.new()
-	saveModel.numero_sala = fase_atual
+	saveModel.numero_sala = pSalaNumero
 	gameSave.write_save_salas(saveModel)
 
 
@@ -79,6 +79,7 @@ func carregar_personagem():
 	if personagem != null:
 		levelManager.jogador_corpo2d.componente_vida.setar_vida_diretamente(personagem.vida)
 		if personagem.type_objeto != null && personagem.type_objeto != "":
-			var objetoSalvo = ClassDB.instantiate(personagem.type_objeto)
-			levelManager.jogador_corpo2d.adicionar_item_diretamente_na_mao(objetoSalvo)
+			var objeto = load(personagem.type_objeto)
+			var instancia = objeto.instantiate()
+			levelManager.jogador_corpo2d.adicionar_item_diretamente_na_mao(instancia)
 #endregion

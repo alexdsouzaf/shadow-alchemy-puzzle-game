@@ -67,6 +67,8 @@ func _mouse_fora_mapa():
 
 func adicionar_item_diretamente_na_mao(pItem:ObjetoItem):
 	levelManager.jogador_corpo2d.objeto_atual = pItem
+	mao.add_child(pItem)
 	pItem.pegar_largar(levelManager.pool_objeto_no_chao, mao,false)
+	pItem.monitorable = false
 	pItem.global_position = mao.global_position
 	ray_cast_direita.add_exception(pItem)

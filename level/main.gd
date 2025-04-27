@@ -6,3 +6,5 @@ class_name Main
 func _ready() -> void:
 	levelManager.main = self
 	levelManager.textura_transicao = textura_transicao
+	levelManager.carregar_ultima_sala()
+	levelManager.carregar_personagem()
