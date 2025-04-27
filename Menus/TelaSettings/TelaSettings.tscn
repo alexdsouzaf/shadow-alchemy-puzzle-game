@@ -1,3 +1,126 @@
-[gd_scene format=3 uid="uid://bs7mbq1fo4ydu"]
+[gd_scene load_steps=4 format=3 uid="uid://bs7mbq1fo4ydu"]
+
+[ext_resource type="PackedScene" uid="uid://iobhwofkmfbg" path="res://volume_slider.tscn" id="1_6at6h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_euwds"]
+font_size = 52
+
+[sub_resource type="LabelSettings" id="LabelSettings_6at6h"]
+font_size = 52
 
 [node name="TelaSettings" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LabelSettings" type="Label" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Settings"
+label_settings = SubResource("LabelSettings_euwds")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer-master" type="VBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/VBoxContainer-master"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/VBoxContainer-master/MarginContainer"]
+layout_mode = 2
+text = "Master"
+label_settings = SubResource("LabelSettings_6at6h")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer/VBoxContainer-master"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VolumeSlider" parent="CanvasLayer/VBoxContainer/VBoxContainer-master/MarginContainer2" instance=ExtResource("1_6at6h")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="VBoxContainer-music" type="VBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/VBoxContainer-music"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/VBoxContainer-music/MarginContainer"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_6at6h")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer/VBoxContainer-music"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VolumeSlider" parent="CanvasLayer/VBoxContainer/VBoxContainer-music/MarginContainer2" instance=ExtResource("1_6at6h")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="VBoxContainer-sfx" type="VBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/VBoxContainer-sfx"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/VBoxContainer-sfx/MarginContainer"]
+layout_mode = 2
+text = "In game Sound Effects"
+label_settings = SubResource("LabelSettings_6at6h")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer/VBoxContainer-sfx"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VolumeSlider" parent="CanvasLayer/VBoxContainer/VBoxContainer-sfx/MarginContainer2" instance=ExtResource("1_6at6h")]
+layout_mode = 2
+bus_name = "sfx"
+
+[node name="VBoxContainer-ui" type="VBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/VBoxContainer-ui"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/VBoxContainer-ui/MarginContainer"]
+layout_mode = 2
+text = "Interface sound effects"
+label_settings = SubResource("LabelSettings_6at6h")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer/VBoxContainer-ui"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VolumeSlider" parent="CanvasLayer/VBoxContainer/VBoxContainer-ui/MarginContainer2" instance=ExtResource("1_6at6h")]
+layout_mode = 2
+bus_name = "UI"

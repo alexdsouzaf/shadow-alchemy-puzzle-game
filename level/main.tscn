@@ -43,6 +43,7 @@ color = Color(0, 0, 0, 0.490196)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_75ygn")
+bus = &"Music"
 
 [node name="UI_in_game" type="CanvasLayer" parent="." node_paths=PackedStringArray("label_pontos_vida")]
 script = ExtResource("6_yv61p")
