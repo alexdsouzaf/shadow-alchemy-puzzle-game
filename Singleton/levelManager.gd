@@ -41,8 +41,8 @@ func reinicia_fase() -> void:
 	
 	var resource_fase = load("res://Resources/level/level_" + str(fase_atual.numeracao_fase) + ".tscn")
 	var instancia = resource_fase.instantiate()
-	main.remove_child(fase_atual)
-	main.add_child(instancia)
+	main.mundo.remove_child(fase_atual)
+	main.mundo.add_child(instancia)
 	
 	await get_tree().create_timer(0.3).timeout
 	

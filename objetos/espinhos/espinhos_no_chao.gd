@@ -28,9 +28,11 @@ func _ready() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animation.animation == "aparecendo":
+		colisionShape.disabled = false
 		timer_recolher.start()
 		
 	if animation.animation == "recolhendo":
+		colisionShape.disabled = true
 		timer_aparecer.start()
 
 
