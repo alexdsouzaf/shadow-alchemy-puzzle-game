@@ -9,6 +9,13 @@
 [node name="Level5" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_npp2q")]
 spawn_point = NodePath("Marker2D")
 
+[node name="AreaValida" parent="ConjuntoTilemap" index="0"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" parent="ConjuntoTilemap/AreaValida" index="0"]
+disabled = true
+
 [node name="porta" parent="ConjuntoTilemap/PoolObjetosNoChao" index="0" instance=ExtResource("2_16hx1")]
 position = Vector2(496, 113)
 
