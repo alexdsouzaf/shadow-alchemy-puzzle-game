@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bp0yluifht21c"]
+[gd_scene load_steps=10 format=4 uid="uid://bp0yluifht21c"]
 
 [ext_resource type="PackedScene" uid="uid://di8kbule36bl6" path="res://Resources/TileMapBase/cenario_base.tscn" id="1_x4oei"]
 [ext_resource type="TileSet" uid="uid://co7ryy7lsysvc" path="res://tileset/tileset_dungeon.tres" id="2_a176a"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://l8xywpsx13r" path="res://inimigos/toxico/inimigo_toxico.tscn" id="7_2w7ee"]
 [ext_resource type="PackedScene" uid="uid://durmyhpesqr71" path="res://objetos/livros/LivroFireBall.tscn" id="7_ltkgp"]
 [ext_resource type="PackedScene" uid="uid://5k1wa3yu2k7n" path="res://objetos/espinhos/espinhos_no_chao.tscn" id="8_dbtst"]
+[ext_resource type="PackedScene" uid="uid://drtdkdd2ej180" path="res://objetos/livros/livroTeleporte.tscn" id="9_5vnyt"]
 
 [node name="Level1" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_x4oei")]
 spawn_point = NodePath("SpawnPoint")
@@ -47,6 +48,9 @@ z_index = -1
 position = Vector2(344, 327)
 tempo_para_aparecer = 2
 tempo_para_recolher = 5
+
+[node name="LivroTeleport" parent="ConjuntoTilemap/PoolObjetosNoChao" index="6" instance=ExtResource("9_5vnyt")]
+position = Vector2(304, 350)
 
 [node name="DirectionalLight2D" parent="." index="1"]
 visible = false

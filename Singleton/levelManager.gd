@@ -24,12 +24,13 @@ func trocar_fase_por_arquivo() -> void:
 
 func carregar_fase_numero(pNumeroFase:int) -> void:
 	var resource_fase = load("res://Resources/level/level_" + str(pNumeroFase) + ".tscn")
-	var instancia = resource_fase.instantiate()
-	
-	if main.mundo.get_child_count() > 0:
-		main.mundo.remove_child(fase_atual)
-	
-	main.mundo.add_child(instancia)
+	if resource_fase != null:
+		var instancia = resource_fase.instantiate()
+		
+		if main.mundo.get_child_count() > 0:
+			main.mundo.remove_child(fase_atual)
+		
+		main.mundo.add_child(instancia)
 
 
 func reinicia_fase() -> void:
