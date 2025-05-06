@@ -17,6 +17,7 @@ size = Vector2(9, 12)
 gradient = SubResource("Gradient_yngyi")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1we4"]
+resource_local_to_scene = true
 shader = ExtResource("2_d46m8")
 shader_parameter/scrollingTexture = SubResource("GradientTexture2D_x1sig")
 shader_parameter/textureScale = Vector2(1, 1)

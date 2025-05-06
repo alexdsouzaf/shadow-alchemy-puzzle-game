@@ -37,20 +37,26 @@ show_label = true
 [node name="Layer0_PoolObjetosNoChao#vela" parent="ConjuntoTilemap/PoolObjetosNoChao" index="2" instance=ExtResource("6_wghh5")]
 position = Vector2(313, 303)
 
-[node name="LivroFireBall" parent="ConjuntoTilemap/PoolObjetosNoChao" index="3" instance=ExtResource("7_ltkgp")]
+[node name="Layer0_PoolObjetosNoChao#vela2" parent="ConjuntoTilemap/PoolObjetosNoChao" index="3" instance=ExtResource("6_wghh5")]
+position = Vector2(293, 303)
+
+[node name="LivroFireBall" parent="ConjuntoTilemap/PoolObjetosNoChao" index="4" instance=ExtResource("7_ltkgp")]
 position = Vector2(402, 298)
 
-[node name="InimigoToxico" parent="ConjuntoTilemap/PoolObjetosNoChao" index="4" instance=ExtResource("7_2w7ee")]
+[node name="InimigoToxico" parent="ConjuntoTilemap/PoolObjetosNoChao" index="5" instance=ExtResource("7_2w7ee")]
 position = Vector2(396, 90)
 
-[node name="espinhos_no_chao" parent="ConjuntoTilemap/PoolObjetosNoChao" index="5" instance=ExtResource("8_dbtst")]
+[node name="espinhos_no_chao" parent="ConjuntoTilemap/PoolObjetosNoChao" index="6" instance=ExtResource("8_dbtst")]
 z_index = -1
 position = Vector2(344, 327)
 tempo_para_aparecer = 2
 tempo_para_recolher = 5
 
-[node name="LivroTeleport" parent="ConjuntoTilemap/PoolObjetosNoChao" index="6" instance=ExtResource("9_5vnyt")]
+[node name="LivroTeleport" parent="ConjuntoTilemap/PoolObjetosNoChao" index="7" instance=ExtResource("9_5vnyt")]
 position = Vector2(304, 350)
+
+[node name="vela" parent="ConjuntoTilemap/PoolObjetosNoChao" index="8" instance=ExtResource("6_wghh5")]
+position = Vector2(273, 323)
 
 [node name="DirectionalLight2D" parent="." index="1"]
 visible = false

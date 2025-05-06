@@ -16,6 +16,7 @@ colors = PackedColorArray(0.787542, 4.16331e-06, 5.77569e-07, 1, 0.407843, 0, 0,
 gradient = SubResource("Gradient_lvsfk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ctfj"]
+resource_local_to_scene = true
 shader = ExtResource("4_3c3qe")
 shader_parameter/scrollingTexture = SubResource("GradientTexture2D_dojn5")
 shader_parameter/textureScale = Vector2(1, 1)
