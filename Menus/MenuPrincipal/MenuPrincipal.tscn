@@ -19,7 +19,12 @@ grow_vertical = 2
 [node name="ButtonIniciar" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Start"
+text = "New Game"
+
+[node name="ButtonContinue" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Continue"
 
 [node name="ButtonConfigs" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -32,5 +37,6 @@ theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonIniciar" to="." method="_on_button_iniciar_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContinue" to="." method="_on_button_continue_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonConfigs" to="." method="_on_button_configs_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonSair" to="." method="_on_button_sair_pressed"]
