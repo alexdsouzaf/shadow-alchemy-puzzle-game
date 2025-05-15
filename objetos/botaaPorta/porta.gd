@@ -1,8 +1,15 @@
 extends CharacterBody2D
 
-#@export var proxima_fase : PackedScene
+@export var ultima_fase : bool = false
+
+@export_category("debug")
+@export var aberta : bool = false
+
 
 func _ready():
+	if aberta:
+		_on_botao_porta_abrir_porta()
+	
 	SignalManager.abrir_porta.connect(self._on_botao_porta_abrir_porta)
 
 
@@ -10,12 +17,13 @@ func _on_botao_porta_abrir_porta():
 	%CollisionShape2D.set_deferred("disabled",true)
 	%AnimatedSprite2D.play("aberto")
 
-#deve carregar a proxima cena
-#funciona na primeira mas nas seguintes se perde o valor da packedscene
 func jogador_entrou():
+	
+	if ultima_fase:
+		SignalManager.chamar_fim_de_jogo.emit()
+		return
+	
 	levelManager.trocar_fase_por_arquivo()
-	#levelManager.trocar_fase(proxima_fase)
-	#get_tree().change_scene_to_packed(proxima_fase)
 
 
 func _on_area_abertura_body_entered(body: Node2D) -> void:
