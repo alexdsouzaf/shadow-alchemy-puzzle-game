@@ -1,34 +1,21 @@
 extends HSlider
+class_name VolumeSlider
 
-enum audioBusEnum {
-	Master,
-	Music,
-	sfx,
-	UI
-}
-
-@export var audioBus : audioBusEnum
+@export var audioBus : GlobalEnum.AudioBusEnum
 
 var bus_index : int
 
 func _ready() -> void:
-	bus_index = AudioServer.get_bus_index(str(audioBusEnum))
-	# TODO: CARREGAR DE VOLTA OS VOLUMES
-	value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
+	print(GlobalEnums.AudioBusEnumDescription[audioBus])
+	bus_index = AudioServer.get_bus_index(GlobalEnums.AudioBusEnumDescription[audioBus]) #aqui ta o valor do enum e nao o nome
+
 
 func _on_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(bus_index,linear_to_db(value))
 
 func _on_drag_ended(value_changed: bool) -> void:
 	if value_changed:
-		var modelo = GameSave.load_save_settings()
-		match audioBus:
-			audioBusEnum.Master:
-				modelo.volume_master = value
-			audioBusEnum.Music:
-				modelo.volume_music = value
-			audioBusEnum.sfx:
-				modelo.volume_sfx = value
-			audioBusEnum.UI:
-				modelo.volume_ui = value
-		gameSave.write_save_settings(modelo)
+		SignalManager.salvar_volume.emit(value,audioBus)
+
+func setar_value_db_to_linear(valorAudio:float) -> void:
+	value = valorAudio
