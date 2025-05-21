@@ -6,7 +6,6 @@ class_name VolumeSlider
 var bus_index : int
 
 func _ready() -> void:
-	print(GlobalEnums.AudioBusEnumDescription[audioBus])
 	bus_index = AudioServer.get_bus_index(GlobalEnums.AudioBusEnumDescription[audioBus]) #aqui ta o valor do enum e nao o nome
 
 

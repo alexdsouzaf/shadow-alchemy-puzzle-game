@@ -22,6 +22,7 @@ SignalManager="*res://Singleton/signalManager.gd"
 uIManager="*res://Singleton/uIManager.gd"
 gameSave="*res://Singleton/gameSave.gd"
 GlobalEnum="*res://Singleton/Enum/global_enum.gd"
+AudioManager="*res://Singleton/Audio/audio_manager.gd"
 
 [display]
 

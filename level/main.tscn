@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bo6trj4qaijuv"]
+[gd_scene load_steps=14 format=3 uid="uid://bo6trj4qaijuv"]
 
 [ext_resource type="Script" uid="uid://bdouwrjys3yul" path="res://level/main.gd" id="1_dnvxj"]
 [ext_resource type="Shader" uid="uid://dfn0dkby62bhq" path="res://level/main.gdshader" id="1_klgnm"]
 [ext_resource type="PackedScene" uid="uid://byiab0h6811tc" path="res://jogador/lildoc.tscn" id="2_8xkcb"]
 [ext_resource type="PackedScene" uid="uid://cgyh1hks0dim5" path="res://projetil/bullet_manager.tscn" id="4_jbk7d"]
-[ext_resource type="AudioStream" uid="uid://c1ve6pdyq5r02" path="res://Audios/HaroldParanormalInstigatorTheme.wav" id="5_75ygn"]
 [ext_resource type="Script" uid="uid://dfl04am7tr2qc" path="res://level/ui_in_game.gd" id="6_yv61p"]
 [ext_resource type="PackedScene" uid="uid://41ccc1p7qgyq" path="res://Menus/Pause/pause.tscn" id="7_klgnm"]
 [ext_resource type="PackedScene" uid="uid://r7sfx8hrc4mx" path="res://Menus/FimDeJogo/fim_de_jogo.tscn" id="8_j70lj"]
@@ -43,11 +42,6 @@ mundo = NodePath("Mundo")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 material = SubResource("ShaderMaterial_7vc00")
 color = Color(0, 0, 0, 0.490196)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_75ygn")
-autoplay = true
-bus = &"Music"
 
 [node name="UI_in_game" type="CanvasLayer" parent="." node_paths=PackedStringArray("label_pontos_vida")]
 script = ExtResource("6_yv61p")

@@ -4,6 +4,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	AudioManager.play_music()
 	#carregar o save game pra saber se devo mostrar o continue
 	var saveSalas = GameSave.load_save_salas()
 	button_continue.visible = saveSalas != null && saveSalas.numero_sala > 0

@@ -57,6 +57,8 @@ size_flags_horizontal = 4
 text = "Find the door"
 label_settings = SubResource("LabelSettings_fpvmf")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonIniciar" to="." method="_on_button_iniciar_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContinue" to="." method="_on_button_continue_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonConfigs" to="." method="_on_button_configs_pressed"]

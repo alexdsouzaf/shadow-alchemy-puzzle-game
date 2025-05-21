@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bs7mbq1fo4ydu"]
+[gd_scene load_steps=5 format=3 uid="uid://bs7mbq1fo4ydu"]
 
 [ext_resource type="Script" uid="uid://8cvai1ug5jm1" path="res://Menus/TelaSettings/tela_settings.gd" id="1_3od6b"]
 [ext_resource type="PackedScene" uid="uid://iobhwofkmfbg" path="res://volume_slider.tscn" id="1_6at6h"]
-[ext_resource type="AudioStream" uid="uid://c1ve6pdyq5r02" path="res://Audios/HaroldParanormalInstigatorTheme.wav" id="3_skjl5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_euwds"]
 font_size = 52
@@ -25,6 +24,7 @@ anchor_right = 1.0
 offset_bottom = 42.0
 grow_horizontal = 2
 theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="LabelSettings" type="Label" parent="CanvasLayer/MarginContainer"]
@@ -32,6 +32,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Settings"
 label_settings = SubResource("LabelSettings_euwds")
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 32
+text = "Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 14
@@ -132,6 +138,4 @@ theme_override_constants/margin_right = 200
 layout_mode = 2
 audioBus = 3
 
-[node name="AudioStreamPlayer-teste" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_skjl5")
-bus = &"Music"
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Button" to="." method="_on_button_pressed"]

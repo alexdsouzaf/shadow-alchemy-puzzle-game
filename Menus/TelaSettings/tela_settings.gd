@@ -25,7 +25,6 @@ func _carregar_settings():
 		_settings_model = SaveSettingsModel.new()
 
 func _salvar_settings(valorVolume:float, busValue:GlobalEnum.AudioBusEnum):
-	print("salvando com: " + str(valorVolume) + " | " + str(busValue))
 	match busValue:
 		GlobalEnum.AudioBusEnum.Master:
 			_settings_model.volume_master = valorVolume
@@ -36,5 +35,8 @@ func _salvar_settings(valorVolume:float, busValue:GlobalEnum.AudioBusEnum):
 		GlobalEnum.AudioBusEnum.UI:
 			_settings_model.volume_ui = valorVolume
 	
-	#nao salvou
 	gameSave.write_save_settings(_settings_model)
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Menus/MenuPrincipal/MenuPrincipal.tscn")
