@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b35cpw2j1416e"]
+[gd_scene load_steps=3 format=3 uid="uid://b35cpw2j1416e"]
 
 [ext_resource type="Script" uid="uid://cgc3ad5yyx3qp" path="res://Menus/MenuPrincipal/menu_principal.gd" id="1_fpvmf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fpvmf"]
+font_size = 87
 
 [node name="MenuPrincipal" type="Node2D"]
 script = ExtResource("1_fpvmf")
@@ -8,13 +11,18 @@ script = ExtResource("1_fpvmf")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -55.0
-offset_right = 68.0
-offset_bottom = 55.0
+offset_left = -41.0
+offset_top = -74.0
+offset_right = 41.0
+offset_bottom = 74.0
+grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 
 [node name="ButtonIniciar" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -35,6 +43,19 @@ text = "Settings"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 30
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Find the door"
+label_settings = SubResource("LabelSettings_fpvmf")
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonIniciar" to="." method="_on_button_iniciar_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContinue" to="." method="_on_button_continue_pressed"]

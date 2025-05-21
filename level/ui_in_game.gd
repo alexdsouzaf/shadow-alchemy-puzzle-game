@@ -8,4 +8,4 @@ func _ready() -> void:
 	atualizar_pontos_vida()
 
 func atualizar_pontos_vida():
-	label_pontos_vida.text = "Pontos de vida: " + str(levelManager.jogador_corpo2d.componente_vida.vida_atual)
+	label_pontos_vida.text = "HP: " + str(levelManager.jogador_corpo2d.componente_vida.vida_atual)

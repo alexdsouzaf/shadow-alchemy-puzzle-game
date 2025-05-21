@@ -26,15 +26,15 @@ size_flags_vertical = 4
 
 [node name="ButtonContinuar" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Continuar"
+text = "Continue"
 
 [node name="ButtonMenu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Sair para o menu"
+text = "Quit to main menu"
 
 [node name="ButtonSair" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Sair para o desktop"
+text = "Quit to desktop"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContinuar" to="." method="_on_button_continuar_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonMenu" to="." method="_on_button_menu_pressed"]

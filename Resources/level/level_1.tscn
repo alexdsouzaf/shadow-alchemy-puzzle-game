@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bp0yluifht21c"]
+[gd_scene load_steps=8 format=4 uid="uid://bp0yluifht21c"]
 
 [ext_resource type="PackedScene" uid="uid://di8kbule36bl6" path="res://Resources/TileMapBase/cenario_base.tscn" id="1_x4oei"]
 [ext_resource type="TileSet" uid="uid://co7ryy7lsysvc" path="res://tileset/tileset_dungeon.tres" id="2_a176a"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cospbec31r7nu" path="res://objetos/vela/vela.tscn" id="6_wghh5"]
 [ext_resource type="PackedScene" uid="uid://l8xywpsx13r" path="res://inimigos/toxico/inimigo_toxico.tscn" id="7_2w7ee"]
 [ext_resource type="PackedScene" uid="uid://durmyhpesqr71" path="res://objetos/livros/LivroFireBall.tscn" id="7_ltkgp"]
-[ext_resource type="PackedScene" uid="uid://5k1wa3yu2k7n" path="res://objetos/espinhos/espinhos_no_chao.tscn" id="8_dbtst"]
-[ext_resource type="PackedScene" uid="uid://drtdkdd2ej180" path="res://objetos/livros/livroTeleporte.tscn" id="9_5vnyt"]
 
 [node name="Level1" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_x4oei")]
 spawn_point = NodePath("SpawnPoint")
@@ -35,10 +33,10 @@ position = Vector2(272, 59)
 show_label = true
 
 [node name="Layer0_PoolObjetosNoChao#vela" parent="ConjuntoTilemap/PoolObjetosNoChao" index="2" instance=ExtResource("6_wghh5")]
-position = Vector2(313, 303)
+position = Vector2(334, 336)
 
 [node name="Layer0_PoolObjetosNoChao#vela2" parent="ConjuntoTilemap/PoolObjetosNoChao" index="3" instance=ExtResource("6_wghh5")]
-position = Vector2(293, 303)
+position = Vector2(406, 333)
 
 [node name="LivroFireBall" parent="ConjuntoTilemap/PoolObjetosNoChao" index="4" instance=ExtResource("7_ltkgp")]
 position = Vector2(402, 298)
@@ -46,17 +44,8 @@ position = Vector2(402, 298)
 [node name="InimigoToxico" parent="ConjuntoTilemap/PoolObjetosNoChao" index="5" instance=ExtResource("7_2w7ee")]
 position = Vector2(396, 90)
 
-[node name="espinhos_no_chao" parent="ConjuntoTilemap/PoolObjetosNoChao" index="6" instance=ExtResource("8_dbtst")]
-z_index = -1
-position = Vector2(344, 327)
-tempo_para_aparecer = 2
-tempo_para_recolher = 5
-
-[node name="LivroTeleport" parent="ConjuntoTilemap/PoolObjetosNoChao" index="7" instance=ExtResource("9_5vnyt")]
-position = Vector2(304, 350)
-
-[node name="vela" parent="ConjuntoTilemap/PoolObjetosNoChao" index="8" instance=ExtResource("6_wghh5")]
-position = Vector2(273, 323)
+[node name="vela" parent="ConjuntoTilemap/PoolObjetosNoChao" index="6" instance=ExtResource("6_wghh5")]
+position = Vector2(382, 298)
 
 [node name="DirectionalLight2D" parent="." index="1"]
 visible = false
